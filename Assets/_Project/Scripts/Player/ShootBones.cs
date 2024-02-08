@@ -22,7 +22,8 @@ public class ShootBones : MonoBehaviour
     private bool isButtonPressed = false;
     private float buttonPressedTime = 0f;
 
-
+    [SerializeField] private AudioClip projectileSFX;
+    [SerializeField] private AudioClip shotgunSFX;
 
     private void Update()
     {
@@ -57,11 +58,14 @@ public class ShootBones : MonoBehaviour
 
     private void ShootProjectile()
     {
+        AudioController.Instance.PlaySound(projectileSFX, 0.7f);
         InstantiateAndShoot(projectileSpawnPoint, shootingForce, scatterIntensity);
     }
 
     private void ShootShotgunBlast()
     {
+        AudioController.Instance.PlaySound(shotgunSFX);
+
         for (int i = 0; i < shotgunPellets; i++)
         {
             InstantiateAndShoot(projectileSpawnPoint, shotgunShootingForce, shotgunScatterIntensity);

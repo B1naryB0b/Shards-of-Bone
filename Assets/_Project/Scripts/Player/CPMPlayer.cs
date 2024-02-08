@@ -90,6 +90,8 @@ public class CPMPlayer : MonoBehaviour
 
     // Player commands, stores wish commands that the player asks for (Forward, back, jump, etc)
     private Cmd _cmd;
+    
+    [SerializeField] private AudioClip bHopSFX;
 
     private void Start()
     {
@@ -313,6 +315,7 @@ public class CPMPlayer : MonoBehaviour
 
         if(wishJump)
         {
+            AudioController.Instance.PlaySound(bHopSFX);
             playerVelocity.y = jumpSpeed;
             wishJump = false;
         }
