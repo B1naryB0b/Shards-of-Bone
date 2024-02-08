@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd2c29b310dfc14498a09fe7c7d292d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followForceMagnitude: 15
+  followForceMagnitude: 20
   floatFrequency: 3
   floatAmplitude: 5
   playerTransform: {fileID: 0}
