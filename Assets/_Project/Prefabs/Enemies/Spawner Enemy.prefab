@@ -123,10 +123,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followForceMagnitude: 50
-  floatFrequency: 5
-  floatAmplitude: 30
+  crawlFrequency: 5
+  crawlAmplitude: 1
   playerTransform: {fileID: 0}
   health: 50
+  hitSFX: {fileID: 0}
 --- !u!54 &5195280078213460395
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -169,8 +170,8 @@ MonoBehaviour:
   enemyPrefab: {fileID: 0}
   spawnPoint: {fileID: 0}
   enemiesPerWave: 5
-  timeBetweenEnemies: 0.5
   waveCooldown: 10
+  spawnRadius: 2
 --- !u!1 &6674586735830174099
 GameObject:
   m_ObjectHideFlags: 0

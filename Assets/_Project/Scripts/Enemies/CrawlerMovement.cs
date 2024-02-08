@@ -1,25 +1,24 @@
 using System.Collections;
 using UnityEngine;
 
-public class BasicFloater : MonoBehaviour
+public class CrawlerMovement : MonoBehaviour
 {
     [SerializeField] private float followForceMagnitude = 5f;
-    [SerializeField] private float crawlFrequency = 5f; // Frequency of the sine wave
-    [SerializeField] private float crawlAmplitude = 1f; // Amplitude of the sine wave
+    [SerializeField] private float floatFrequency = 5f; // Frequency of the sine wave
+    [SerializeField] private float floatAmplitude = 1f; // Amplitude of the sine wave
 
     [SerializeField] private Transform playerTransform;
     private Rigidbody rb;
-    private float offset;
+    private Vector3 offset;
 
     [SerializeField] private int health;
     [SerializeField] private AudioClip hitSFX;
-
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
 
-        offset = Random.value * crawlFrequency; // Randomize start offset for variety
+        offset = new Vector3(Random.value, Random.value, 0) * floatFrequency; // Randomize start offset for variety
     }
 
     public void SetPlayerTransform(Transform transform)
@@ -32,16 +31,14 @@ public class BasicFloater : MonoBehaviour
         if (playerTransform != null)
         {
             Vector3 direction = (playerTransform.position - transform.position).normalized;
-            Vector3 followForce = direction * followForceMagnitude;
+            Vector3 force = direction * followForceMagnitude;
 
-            // Calculate the crawl force using a sine wave for a dynamic effect
-            float crawlForceMagnitude = Mathf.Sin(Time.time * crawlFrequency + offset) * crawlAmplitude;
-            Vector3 crawlForce = direction * crawlForceMagnitude;
+            // Apply the sine wave force along the x and y axes separately
+            force.x += Mathf.Sin(Time.time * floatFrequency + offset.x) * floatAmplitude;
+            force.y += Mathf.Sin(Time.time * floatFrequency + offset.y) * floatAmplitude;
 
-            // Apply the combined forces
-            rb.AddForce(followForce + crawlForce);
+            rb.AddForce(force);
         }
-
     }
 
     public void Flash(GameObject target, float duration)

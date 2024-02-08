@@ -147,11 +147,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd2c29b310dfc14498a09fe7c7d292d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followForceMagnitude: 20
-  floatFrequency: 3
-  floatAmplitude: 5
+  followForceMagnitude: 25
+  crawlFrequency: 5
+  crawlAmplitude: 1
   playerTransform: {fileID: 0}
   health: 5
+  hitSFX: {fileID: 8300000, guid: c65eefe0c0c9f484d83fda6c0ad67c38, type: 3}
 --- !u!82 &6289442635354149452
 AudioSource:
   m_ObjectHideFlags: 0
@@ -164,7 +165,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: fc7ff05742359aa4b946f06b459dfb7e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -175,7 +176,7 @@ AudioSource:
   MinDistance: 1
   MaxDistance: 7.6
   Pan2D: 0
-  rolloffMode: 1
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -184,22 +185,22 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.4999962
       inSlope: 0
-      outSlope: 0
-      tangentMode: 0
+      outSlope: -0.49853134
+      tangentMode: 65
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
       time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
+      value: 0.0014648438
+      inSlope: -0.49853134
+      outSlope: -1.1515151
+      tangentMode: 5
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4

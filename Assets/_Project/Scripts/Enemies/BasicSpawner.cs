@@ -42,9 +42,13 @@ public class BasicSpawner : MonoBehaviour
     private void SpawnEnemy(Vector3 position)
     {
         GameObject enemy = Instantiate(enemyPrefab, position, spawnPoint.rotation);
-        if (enemy.TryGetComponent<BasicFloater>(out BasicFloater floater))
+        if (enemy.TryGetComponent(out BasicFloater floater))
         {
             floater.SetPlayerTransform(playerTransform);
+        }
+        if (enemy.TryGetComponent(out CrawlerMovement crawler))
+        {
+            crawler.SetPlayerTransform(playerTransform);
         }
     }
 }
