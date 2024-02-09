@@ -9,12 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 506886707009929159}
+  - component: {fileID: 8335910150867430854}
+  - component: {fileID: 3096616723137963283}
+  - component: {fileID: 195202565508847960}
   - component: {fileID: 6046672536439292916}
   - component: {fileID: 6830953630570295227}
   - component: {fileID: 1216704689923012403}
-  - component: {fileID: 3096616723137963283}
   - component: {fileID: 5195280078213460395}
-  - component: {fileID: 8335910150867430854}
   m_Layer: 0
   m_Name: Spawner Enemy
   m_TagString: Untagged
@@ -38,6 +39,55 @@ Transform:
   - {fileID: 6396692612396773449}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8335910150867430854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580982361717591071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1548c3e20af490948a90690123dea36c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveSO: {fileID: 11400000, guid: 50e0f5d76ccba264ba70370e71a6e054, type: 2}
+  spawnPoint: {fileID: 0}
+  waveCooldown: 10
+  spawnRadius: 2
+--- !u!114 &3096616723137963283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580982361717591071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd2c29b310dfc14498a09fe7c7d292d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  followForceMagnitude: 50
+  crawlFrequency: 5
+  crawlAmplitude: 1
+  playerTransform: {fileID: 0}
+--- !u!114 &195202565508847960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580982361717591071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ffea94ec8819c44b9f3c0d409af6cd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  hitSFX: {fileID: 8300000, guid: 2aab76ed0d24af94d8af9e1984bbb166, type: 3}
+  flashDuration: 0.05
+  hitColor: {r: 1, g: 1, b: 1, a: 1}
+  damagePerHit: 1
 --- !u!33 &6046672536439292916
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -45,7 +95,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1580982361717591071}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &6830953630570295227
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -110,24 +160,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &3096616723137963283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1580982361717591071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd2c29b310dfc14498a09fe7c7d292d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  followForceMagnitude: 50
-  crawlFrequency: 5
-  crawlAmplitude: 1
-  playerTransform: {fileID: 0}
-  health: 50
-  hitSFX: {fileID: 0}
 --- !u!54 &5195280078213460395
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -151,27 +183,10 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &8335910150867430854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1580982361717591071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1548c3e20af490948a90690123dea36c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 0}
-  spawnPoint: {fileID: 0}
-  enemiesPerWave: 5
-  waveCooldown: 10
-  spawnRadius: 2
 --- !u!1 &6674586735830174099
 GameObject:
   m_ObjectHideFlags: 0

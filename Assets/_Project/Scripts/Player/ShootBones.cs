@@ -58,7 +58,7 @@ public class ShootBones : MonoBehaviour
 
     private void ShootProjectile()
     {
-        AudioController.Instance.PlaySound(projectileSFX, 0.7f);
+        AudioController.Instance.PlaySound(projectileSFX, 0.3f);
         InstantiateAndShoot(projectileSpawnPoint, shootingForce, scatterIntensity);
     }
 

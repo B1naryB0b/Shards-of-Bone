@@ -9,11 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1621210800535506124}
+  - component: {fileID: 1844140341236372155}
+  - component: {fileID: 4582024340609177857}
   - component: {fileID: 7865647095648450564}
   - component: {fileID: 7184421260495934916}
   - component: {fileID: 8231261320434770836}
   - component: {fileID: 1410739503773004377}
-  - component: {fileID: 1844140341236372155}
   m_Layer: 0
   m_Name: Crawler
   m_TagString: Untagged
@@ -36,6 +37,39 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 50.798}
+--- !u!114 &1844140341236372155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5147804706763200900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddb82c2b71fe05e4db5c2d9681213d9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  followForceMagnitude: 35
+  floatFrequency: 5
+  floatAmplitude: 15
+  playerTransform: {fileID: 0}
+--- !u!114 &4582024340609177857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5147804706763200900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ffea94ec8819c44b9f3c0d409af6cd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5
+  hitSFX: {fileID: 8300000, guid: 2aab76ed0d24af94d8af9e1984bbb166, type: 3}
+  flashDuration: 0.05
+  hitColor: {r: 1, g: 1, b: 1, a: 1}
+  damagePerHit: 1
 --- !u!33 &7865647095648450564
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -64,7 +98,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e9761d6e3b975124faf5a077e91ae28e, type: 2}
+  - {fileID: 2100000, guid: fb09b42eacb07364b9022a8aabd46d1a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -136,21 +170,3 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1844140341236372155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5147804706763200900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddb82c2b71fe05e4db5c2d9681213d9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  followForceMagnitude: 45
-  floatFrequency: 5
-  floatAmplitude: 15
-  playerTransform: {fileID: 0}
-  health: 10
-  hitSFX: {fileID: 8300000, guid: c65eefe0c0c9f484d83fda6c0ad67c38, type: 3}

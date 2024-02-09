@@ -11,9 +11,6 @@ public class CrawlerMovement : MonoBehaviour
     private Rigidbody rb;
     private Vector3 offset;
 
-    [SerializeField] private int health;
-    [SerializeField] private AudioClip hitSFX;
-
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -41,40 +38,5 @@ public class CrawlerMovement : MonoBehaviour
         }
     }
 
-    public void Flash(GameObject target, float duration)
-    {
-        StartCoroutine(Co_Flash(target, duration));
-    }
-
-    private IEnumerator Co_Flash(GameObject target, float duration)
-    {
-        Renderer targetRenderer = target.GetComponent<Renderer>();
-        if (targetRenderer == null)
-        {
-            yield break; // Exit if the target has no Renderer
-        }
-
-        Color originalColor = targetRenderer.material.color; // Store the original color
-        targetRenderer.material.color = Color.white; // Change to white
-
-        yield return new WaitForSeconds(duration); // Wait for the specified duration
-
-        targetRenderer.material.color = originalColor; // Revert to the original color
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Bullets"))
-        {
-            Flash(gameObject, 0.02f);
-            health -= 1;
-            Destroy(collision.gameObject);
-        }
-
-        if (health <= 0)
-        {
-            AudioController.Instance.PlaySound(hitSFX);
-            Destroy(gameObject);
-        }
-    }
+    
 }
