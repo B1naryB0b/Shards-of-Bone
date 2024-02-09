@@ -32,7 +32,7 @@ public class Spawner : MonoBehaviour
             for (int i = 0; i < wave.quantity; i++)
             {
                 Vector3 offsetPosition = Random.insideUnitSphere * spawnRadius + spawnPoint.position;
-                offsetPosition.y = spawnPoint.position.y; // Keep the y position consistent with the spawn point
+                offsetPosition.y = spawnPoint.position.y;
                 SpawnUnit(wave.unit, offsetPosition);
                 yield return null; // Optional: to spread out instantiation over multiple frames
             }
@@ -42,13 +42,17 @@ public class Spawner : MonoBehaviour
     private void SpawnUnit(GameObject unit, Vector3 position)
     {
         GameObject enemy = Instantiate(unit, position, spawnPoint.rotation);
-        if (enemy.TryGetComponent(out BasicFloater floater))
+        if (enemy.TryGetComponent(out FloaterMovement floater))
         {
             floater.SetPlayerTransform(playerTransform);
         }
         if (enemy.TryGetComponent(out CrawlerMovement crawler))
         {
             crawler.SetPlayerTransform(playerTransform);
+        }
+        if (enemy.TryGetComponent(out LurkerMovement lurker))
+        {
+            lurker.SetPlayerTransform(playerTransform);
         }
     }
 }

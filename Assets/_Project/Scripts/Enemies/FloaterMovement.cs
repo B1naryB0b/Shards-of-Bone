@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class BasicFloater : MonoBehaviour
+public class FloaterMovement : MonoBehaviour
 {
     [SerializeField] private float followForceMagnitude = 5f;
     [SerializeField] private float crawlFrequency = 5f; // Frequency of the sine wave
