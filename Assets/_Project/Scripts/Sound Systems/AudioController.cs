@@ -8,12 +8,19 @@ public class AudioController : MonoBehaviour
 
     [SerializeField] private AudioSource _musicSource, _sfxSource;
 
+    private GameObject sfxGameObject;
+
+    private void Start()
+    {
+        sfxGameObject = _sfxSource.gameObject;
+    }
+
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -23,6 +30,8 @@ public class AudioController : MonoBehaviour
 
     public void PlaySound(AudioClip clip, float volume = 1f)
     {
+        if (_sfxSource == null) { _sfxSource = sfxGameObject.GetComponent<AudioSource>(); }
+
         if (clip == null)
         {
             Debug.LogError("AudioClip is null!");

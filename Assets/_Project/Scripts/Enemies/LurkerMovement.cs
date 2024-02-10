@@ -12,9 +12,12 @@ public class LurkerMovement : MonoBehaviour
     private bool isLookedAt;
     private float timeSinceLookedAt;
 
+    private AudioSource audioSource;
+
     void Start()
     {
         playerCamera = Camera.main;
+        audioSource = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -48,6 +51,7 @@ public class LurkerMovement : MonoBehaviour
         float angle = CalculateAngleBetweenTransforms(playerCamera.transform, transform);
         if (angle < lookingAtAngleThreshold && !isLookedAt)
         {
+            audioSource.Play();
             isLookedAt = true;
             timeSinceLookedAt = Time.time;
         }
