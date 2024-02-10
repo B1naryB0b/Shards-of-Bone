@@ -68,7 +68,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 90
+  field of view: 100
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -238,6 +238,7 @@ GameObject:
   - component: {fileID: 4297549658431617157}
   - component: {fileID: 1907224051198770843}
   - component: {fileID: 5402766187829922867}
+  - component: {fileID: 6822501476935764959}
   m_Layer: 0
   m_Name: PF_Player
   m_TagString: Untagged
@@ -389,7 +390,7 @@ MonoBehaviour:
   sideStrafeAcceleration: 50
   sideStrafeSpeed: 1
   jumpSpeed: 8
-  holdJumpToBhop: 0
+  holdJumpToBhop: 1
   style:
     m_Name: 
     m_Normal:
@@ -476,7 +477,7 @@ MonoBehaviour:
   projectileSpawnPoint: {fileID: 0}
   fireRate: 20
   shootingForce: 300
-  scatterIntensity: 4
+  scatterIntensity: 2
   shotgunFireRate: 2
   shotgunShootingForce: 500
   shotgunScatterIntensity: 10
@@ -484,6 +485,19 @@ MonoBehaviour:
   tapThreshold: 0.2
   projectileSFX: {fileID: 8300000, guid: cedf6b45a301ab34195500b0a1b2e85f, type: 3}
   shotgunSFX: {fileID: 8300000, guid: ac57cf2e26d0c954da0027cced9fb743, type: 3}
+--- !u!114 &6822501476935764959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3015661428472352285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11e3ed84b04f8f74e9c424646af9aa37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  retryScreen: {fileID: 0}
 --- !u!1 &3384848424837606208
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,7 +765,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 1
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
