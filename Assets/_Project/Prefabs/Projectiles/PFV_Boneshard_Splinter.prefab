@@ -28,6 +28,11 @@ PrefabInstance:
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].outSlope
       value: -0.15000674
       objectReference: {fileID: 0}
+    - target: {fileID: -2292062299519877129, guid: c9894510cd7ce5a41a95f4a8b9f2d325,
+        type: 3}
+      propertyPath: _delay
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1719897295978594942, guid: c9894510cd7ce5a41a95f4a8b9f2d325,
         type: 3}
       propertyPath: m_Name

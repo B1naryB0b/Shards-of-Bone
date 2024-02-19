@@ -15,6 +15,7 @@ public class PlayerDeath : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Die();
+            Debug.Log("Triggered");
         }
     }
 

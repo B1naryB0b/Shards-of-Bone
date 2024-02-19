@@ -47,6 +47,10 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Ints: []
-    m_Floats: []
-    m_Colors: []
+    m_Floats:
+    - _EmissiveIntensity: 1.66
+    - _UseEmissiveIntensity: 1
+    m_Colors:
+    - _EmissiveColor: {r: 0.020245614, g: 0.020245614, b: 0.020245614, a: 1.66}
+    - _EmissiveColorLDR: {r: 0.11320752, g: 0.11320752, b: 0.11320752, a: 1}
   m_BuildTextureStacks: []

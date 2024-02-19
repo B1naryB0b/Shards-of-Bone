@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class BoidSpawner : MonoBehaviour {
 
-    [SerializeField] private BoidManager boidManager;
+    public BoidManager boidManager;
 
     [Header("Waves")]
     [SerializeField] private WaveSO waveSO;
+    [SerializeField] private float initialDelay;
     [SerializeField] private float waveCooldown = 10f;
 
     [Header("Spawn")]
@@ -23,6 +24,8 @@ public class BoidSpawner : MonoBehaviour {
 
     private IEnumerator Co_SpawnWaves()
     {
+        yield return new WaitForSeconds(initialDelay);
+
         while (true)
         {
             yield return StartCoroutine(Co_SpawnWave());
@@ -53,6 +56,7 @@ public class BoidSpawner : MonoBehaviour {
             boid.transform.forward = Random.insideUnitSphere;
             boid.SetColour(colour);
             boidManager.AddBoid(boid);
+            Debug.Log(boid);
         }
         else
         {

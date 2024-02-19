@@ -12,7 +12,7 @@ public class SimpleFollow : MonoBehaviour
     }
 
     [SerializeField] private FollowType followType;
-    [SerializeField] private Transform target;
+    public Transform target;
     [SerializeField] private bool lerpPosition;
     [SerializeField] private bool lerpRotation;
 

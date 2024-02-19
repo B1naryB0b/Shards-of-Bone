@@ -14,6 +14,8 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private int bulletDamage;
     [SerializeField] private int splinterDamage;
 
+    [SerializeField] private GameObject enemyObject;
+
     private Renderer enemyRenderer;
 
     private void Start()
@@ -63,7 +65,15 @@ public class EnemyHealth : MonoBehaviour
         if (health <= 0)
         {
             AudioController.Instance.PlaySound(hitSFX);
-            Destroy(gameObject);
+
+            if (enemyObject != null)
+            {
+                Destroy(enemyObject);
+            }
+            else
+            {
+                Debug.LogError("No enemyObject assigned to EnemyHealth.cs");
+            }
         }
     }
 }

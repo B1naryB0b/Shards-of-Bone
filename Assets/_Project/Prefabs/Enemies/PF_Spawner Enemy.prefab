@@ -89,6 +89,7 @@ MonoBehaviour:
   hitColor: {r: 1, g: 1, b: 1, a: 1}
   bulletDamage: 3
   splinterDamage: 1
+  enemyObject: {fileID: 1580982361717591071}
 --- !u!33 &6046672536439292916
 MeshFilter:
   m_ObjectHideFlags: 0
