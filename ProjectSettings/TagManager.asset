@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Bullets
   - Enemy
+  - Ground
+  - Splinter
   layers:
   - Default
   - TransparentFX

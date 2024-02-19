@@ -8,15 +8,22 @@ public class PlayerDeath : MonoBehaviour
 {
     [SerializeField] private GameObject retryScreen;
 
+    private bool isDead = false;
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            gameObject.GetComponent<CPMPlayer>().enabled = false;
-            retryScreen.SetActive(true);
-
-            UnlockCursor();
+            Die();
         }
+    }
+
+    private void Die()
+    {
+        gameObject.GetComponent<CPMPlayer>().enabled = false;
+        retryScreen.SetActive(true);
+
+        UnlockCursor();
     }
 
     private void UnlockCursor()
@@ -26,4 +33,19 @@ public class PlayerDeath : MonoBehaviour
             Cursor.lockState = CursorLockMode.Confined;
         }
     }
+
+    private void FellOffMapCheck()
+    {
+        if (!isDead && gameObject.transform.position.y < -10f)
+        {
+            Die();
+            isDead = true;
+        }
+    }
+
+    private void Update()
+    {
+        FellOffMapCheck();
+    }
+
 }

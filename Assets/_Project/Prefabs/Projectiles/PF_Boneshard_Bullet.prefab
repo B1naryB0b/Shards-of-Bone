@@ -160,6 +160,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 11db0534b819c744bb8d001e9bda46b0,
         type: 3}
       insertIndex: -1
+      addedObject: {fileID: -3887634896770576828}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 11db0534b819c744bb8d001e9bda46b0,
+        type: 3}
+      insertIndex: -1
       addedObject: {fileID: -3394952971628654832}
   m_SourcePrefab: {fileID: 100100000, guid: 11db0534b819c744bb8d001e9bda46b0, type: 3}
 --- !u!1 &1719897295978594942 stripped
@@ -208,6 +212,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _delay: 2
+--- !u!114 &-3887634896770576828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719897295978594942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40fb4bfa63a58c84d9e5c39fc7a5417c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  splinterObject: {fileID: 7512420052385799317, guid: 1b5bef0650db04b4c8a01d86564b8403,
+    type: 3}
+  splintersPerBullet: 2
+  scatterAngle: 10
 --- !u!96 &-3394952971628654832
 TrailRenderer:
   serializedVersion: 3

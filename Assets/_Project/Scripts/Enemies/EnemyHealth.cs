@@ -11,7 +11,8 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private Color hitColor;
     private Color originalColor;
 
-    [SerializeField] private int damagePerHit;
+    [SerializeField] private int bulletDamage;
+    [SerializeField] private int splinterDamage;
 
     private Renderer enemyRenderer;
 
@@ -45,14 +46,18 @@ public class EnemyHealth : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bullets"))
         {
-            TakeDamage(collision);
+            TakeDamage(collision, bulletDamage);
+        }
+        else if (collision.gameObject.CompareTag("Splinter"))
+        {
+            TakeDamage(collision, splinterDamage);
         }
     }
 
-    private void TakeDamage(Collision collision)
+    private void TakeDamage(Collision collision, int damage)
     {
         Flash(flashDuration);
-        health -= damagePerHit;
+        health -= damage;
         Destroy(collision.gameObject);
 
         if (health <= 0)

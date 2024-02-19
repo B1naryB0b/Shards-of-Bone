@@ -11,12 +11,12 @@ PrefabInstance:
     - target: {fileID: 473026841978952320, guid: ea5cf8584f8c57f4dbd9adbea886d65e,
         type: 3}
       propertyPath: m_Name
-      value: Floater_Fast
+      value: PFV_Floater_Fast
       objectReference: {fileID: 0}
     - target: {fileID: 2530592982803816389, guid: ea5cf8584f8c57f4dbd9adbea886d65e,
         type: 3}
       propertyPath: followForceMagnitude
-      value: 70
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5777968359766161639, guid: ea5cf8584f8c57f4dbd9adbea886d65e,
         type: 3}
