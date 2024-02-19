@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5429924674507923333}
   - component: {fileID: 3511376833288041768}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,6 +138,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 11db0534b819c744bb8d001e9bda46b0,
         type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 11db0534b819c744bb8d001e9bda46b0,
+        type: 3}
       propertyPath: m_TagString
       value: Bullets
       objectReference: {fileID: 0}
@@ -226,9 +231,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   splinterObject: {fileID: 7512420052385799317, guid: 1b5bef0650db04b4c8a01d86564b8403,
     type: 3}
-  splintersPerBullet: 2
-  splinterProbability: 0.555
-  scatterAngle: 10
+  splintersPerBullet: 4
+  scatterAngle: 20
 --- !u!96 &-3394952971628654832
 TrailRenderer:
   serializedVersion: 3

@@ -11,7 +11,7 @@ public class BoidManager : MonoBehaviour {
     public Transform target;
     List<Boid> boids = new List<Boid>();
 
-    void Start()
+/*    void Start()
     {
         Boid[] boidArray = FindObjectsOfType<Boid>();
         boids.AddRange(boidArray);
@@ -19,6 +19,17 @@ public class BoidManager : MonoBehaviour {
         {
             b.Initialize(settings, target);
         }
+    }*/
+
+    public void AddBoid(Boid boid)
+    {
+        boids.Add(boid);
+        boid.Initialize(settings, target);
+    }
+
+    public void RemoveBoid(Boid boid)
+    {
+        boids.Remove(boid);
     }
 
     void Update()
@@ -61,11 +72,6 @@ public class BoidManager : MonoBehaviour {
         }
 
         boids.RemoveAll(boid => boid == null);
-    }
-
-    public void RemoveBoid(Boid boid)
-    {
-        boids.Remove(boid);
     }
 
     public struct BoidData {

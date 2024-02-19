@@ -36,7 +36,7 @@ public class PlayerDeath : MonoBehaviour
 
     private void FellOffMapCheck()
     {
-        if (!isDead && gameObject.transform.position.y < -10f)
+        if (!isDead && gameObject.transform.position.y < -50f)
         {
             Die();
             isDead = true;

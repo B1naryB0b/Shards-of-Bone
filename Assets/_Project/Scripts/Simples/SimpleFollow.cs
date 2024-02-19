@@ -34,15 +34,15 @@ public class SimpleFollow : MonoBehaviour
 
     private void SnapFollow()
     {
-        if (lerpPosition) gameObject.transform.position = target.position;
+        if (lerpPosition) { gameObject.transform.position = target.position; }
 
-        if (lerpRotation) gameObject.transform.rotation = target.rotation;
+        if (lerpRotation) { gameObject.transform.rotation = target.rotation; }
     }
 
     private void SmoothFollow()
     {
-        if (lerpPosition) gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, target.position, Time.deltaTime * smoothFollowSpeed);
+        if (lerpPosition) { gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, target.position, Time.deltaTime * smoothFollowSpeed); }
 
-        if (lerpRotation) gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, target.rotation, Time.deltaTime * smoothFollowSpeed);
+        if (lerpRotation) { gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, target.rotation, Time.deltaTime * smoothFollowSpeed); }
     }
 }

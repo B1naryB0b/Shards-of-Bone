@@ -6,13 +6,12 @@ public class SplinterProjectiles : MonoBehaviour
 {
     [SerializeField] private GameObject splinterObject;
     [SerializeField] private int splintersPerBullet;
-    [Range(0f,1f)]
-    [SerializeField] private float splinterProbability;
+
     [SerializeField] private float scatterAngle;
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ground") && (Random.value < splinterProbability))
+        if (collision.gameObject.CompareTag("Ground"))
         {
             Vector3 originalVelocity = gameObject.GetComponent<Rigidbody>().velocity;
             float speed = originalVelocity.magnitude;

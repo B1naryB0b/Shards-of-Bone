@@ -4,22 +4,59 @@ using UnityEngine;
 
 public class BoidSpawner : MonoBehaviour {
 
-    public enum GizmoType { Never, SelectedOnly, Always }
+    [SerializeField] private BoidManager boidManager;
 
-    public Boid prefab;
-    public float spawnRadius = 10;
-    public int spawnCount = 10;
-    public Color colour;
-    public GizmoType showSpawnRegion;
+    [Header("Waves")]
+    [SerializeField] private WaveSO waveSO;
+    [SerializeField] private float waveCooldown = 10f;
 
-    void Awake () {
-        for (int i = 0; i < spawnCount; i++) {
-            Vector3 pos = transform.position + Random.insideUnitSphere * spawnRadius;
-            Debug.Log(pos);
-            Boid boid = Instantiate (prefab, pos, Quaternion.identity);
+    [Header("Spawn")]
+    [SerializeField] private float spawnRadius = 10f;
+    [SerializeField] private Color colour;
+    private enum GizmoType { Never, SelectedOnly, Always }
+    [SerializeField] private GizmoType showSpawnRegion;
+
+    private void Start()
+    {
+        StartCoroutine(Co_SpawnWaves());
+    }
+
+    private IEnumerator Co_SpawnWaves()
+    {
+        while (true)
+        {
+            yield return StartCoroutine(Co_SpawnWave());
+            yield return new WaitForSeconds(waveCooldown);
+        }
+    }
+
+    private IEnumerator Co_SpawnWave()
+    {
+        foreach (Wave wave in waveSO.waves)
+        {
+            for (int i = 0; i < wave.quantity; i++)
+            {
+                SpawnBoid(wave);
+                yield return null;
+            }
+        }
+    }
+
+    private void SpawnBoid(Wave wave)
+    {
+        Vector3 pos = transform.position + Random.insideUnitSphere * spawnRadius;
+        GameObject boidObject = Instantiate(wave.unit, pos, Quaternion.identity);
+        Boid boid = boidObject.GetComponent<Boid>();
+
+        if (boid != null)
+        {
             boid.transform.forward = Random.insideUnitSphere;
-
-            boid.SetColour (colour);
+            boid.SetColour(colour);
+            boidManager.AddBoid(boid);
+        }
+        else
+        {
+            Debug.LogError("The instantiated object does not have a Boid component.");
         }
     }
 
