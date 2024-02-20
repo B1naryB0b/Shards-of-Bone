@@ -69,12 +69,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ffea94ec8819c44b9f3c0d409af6cd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 9
+  health: 6
   hitSFX: {fileID: 8300000, guid: 2aab76ed0d24af94d8af9e1984bbb166, type: 3}
   flashDuration: 0.05
   hitColor: {r: 1, g: 1, b: 1, a: 1}
   bulletDamage: 3
-  splinterDamage: 1
+  splinterDamage: 2
   enemyObject: {fileID: 473026841978952320}
 --- !u!33 &3884234424527453127
 MeshFilter:

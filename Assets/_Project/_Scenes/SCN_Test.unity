@@ -22925,125 +22925,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1801020857961106649, guid: 437c12f0704ee414f9a16897911bbfba,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1801020857961106649, guid: 437c12f0704ee414f9a16897911bbfba,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.99046266
-      objectReference: {fileID: 0}
-    - target: {fileID: 1801020857961106649, guid: 437c12f0704ee414f9a16897911bbfba,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.76792455
-      objectReference: {fileID: 0}
-    - target: {fileID: 1801020857961106649, guid: 437c12f0704ee414f9a16897911bbfba,
-        type: 3}
-      propertyPath: m_ColorTemperature
-      value: 9952
-      objectReference: {fileID: 0}
-    - target: {fileID: 1890181636533763141, guid: 437c12f0704ee414f9a16897911bbfba,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1890181636533763141, guid: 437c12f0704ee414f9a16897911bbfba,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9961947
-      objectReference: {fileID: 0}
-    - target: {fileID: 1890181636533763141, guid: 437c12f0704ee414f9a16897911bbfba,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.08715578
-      objectReference: {fileID: 0}
-    - target: {fileID: 1890181636533763141, guid: 437c12f0704ee414f9a16897911bbfba,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1890181636533763141, guid: 437c12f0704ee414f9a16897911bbfba,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1890181636533763141, guid: 437c12f0704ee414f9a16897911bbfba,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1907224051198770843, guid: 437c12f0704ee414f9a16897911bbfba,
-        type: 3}
-      propertyPath: moveSpeed
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 1907224051198770843, guid: 437c12f0704ee414f9a16897911bbfba,
-        type: 3}
-      propertyPath: airAcceleration
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1907224051198770843, guid: 437c12f0704ee414f9a16897911bbfba,
-        type: 3}
-      propertyPath: runAcceleration
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 2511425643385536247, guid: 437c12f0704ee414f9a16897911bbfba,
-        type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2873695194412990976, guid: 437c12f0704ee414f9a16897911bbfba,
-        type: 3}
-      propertyPath: field of view
-      value: 110
-      objectReference: {fileID: 0}
-    - target: {fileID: 2873695194412990976, guid: 437c12f0704ee414f9a16897911bbfba,
-        type: 3}
-      propertyPath: m_TargetTexture
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3015661428472352285, guid: 437c12f0704ee414f9a16897911bbfba,
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 3015661428472352285, guid: 437c12f0704ee414f9a16897911bbfba,
-        type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3384848424837606208, guid: 437c12f0704ee414f9a16897911bbfba,
-        type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3540771213954497592, guid: 437c12f0704ee414f9a16897911bbfba,
-        type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4158798787938968778, guid: 437c12f0704ee414f9a16897911bbfba,
-        type: 3}
-      propertyPath: m_Height
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4158798787938968778, guid: 437c12f0704ee414f9a16897911bbfba,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4158798787938968778, guid: 437c12f0704ee414f9a16897911bbfba,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4297549658431617157, guid: 437c12f0704ee414f9a16897911bbfba,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4354681342532847843, guid: 437c12f0704ee414f9a16897911bbfba,
         type: 3}
@@ -23095,26 +22980,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4468626219542683423, guid: 437c12f0704ee414f9a16897911bbfba,
-        type: 3}
-      propertyPath: backgroundColorHDR.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5402766187829922867, guid: 437c12f0704ee414f9a16897911bbfba,
-        type: 3}
-      propertyPath: fireRate
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5402766187829922867, guid: 437c12f0704ee414f9a16897911bbfba,
-        type: 3}
-      propertyPath: shootingForce
-      value: 450
-      objectReference: {fileID: 0}
-    - target: {fileID: 5402766187829922867, guid: 437c12f0704ee414f9a16897911bbfba,
-        type: 3}
-      propertyPath: scatterIntensity
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5402766187829922867, guid: 437c12f0704ee414f9a16897911bbfba,
         type: 3}
       propertyPath: projectileSpawnPoint
@@ -23122,24 +22987,24 @@ PrefabInstance:
       objectReference: {fileID: 539538936}
     - target: {fileID: 5402766187829922867, guid: 437c12f0704ee414f9a16897911bbfba,
         type: 3}
-      propertyPath: shotgunShootingForce
-      value: 650
+      propertyPath: movementCompensationStrength
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5402766187829922867, guid: 437c12f0704ee414f9a16897911bbfba,
         type: 3}
-      propertyPath: shotgunScatterIntensity
-      value: 8
+      propertyPath: movementAngleCompensationStrength
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5402766187829922867, guid: 437c12f0704ee414f9a16897911bbfba,
+        type: 3}
+      propertyPath: movementPositionCompensationStrength
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6822501476935764959, guid: 437c12f0704ee414f9a16897911bbfba,
         type: 3}
       propertyPath: retryScreen
       value: 
       objectReference: {fileID: 739295349}
-    - target: {fileID: 8863386009386855077, guid: 437c12f0704ee414f9a16897911bbfba,
-        type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

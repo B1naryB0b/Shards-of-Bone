@@ -235,7 +235,7 @@ MonoBehaviour:
   flashDuration: 0.05
   hitColor: {r: 1, g: 1, b: 1, a: 1}
   bulletDamage: 3
-  splinterDamage: 1
+  splinterDamage: 2
   enemyObject: {fileID: 5757039468991161957}
 --- !u!1 &5757039468991161957
 GameObject:
