@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2873695194412990976}
   - component: {fileID: 7681830608405803706}
   - component: {fileID: 4468626219542683423}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 100
+  field of view: 110
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -76,7 +76,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 8400000, guid: 9bfe9c2c668fd6248a0f387e97ec95cf, type: 2}
+  m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 1907224051198770843}
   - component: {fileID: 5402766187829922867}
   - component: {fileID: 6822501476935764959}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PF_Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,8 +333,8 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
+  m_Radius: 0.4
+  m_Height: 1.5
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!143 &4297549658431617157
@@ -381,10 +381,10 @@ MonoBehaviour:
   yMouseSensitivity: 50
   gravity: 20
   friction: 6
-  moveSpeed: 12
-  runAcceleration: 14
+  moveSpeed: 16
+  runAcceleration: 18
   runDeacceleration: 10
-  airAcceleration: 0.25
+  airAcceleration: 1
   airDecceleration: 2
   airControl: 10
   sideStrafeAcceleration: 10
@@ -475,12 +475,12 @@ MonoBehaviour:
   projectilePrefab: {fileID: 1719897295978594942, guid: c9894510cd7ce5a41a95f4a8b9f2d325,
     type: 3}
   projectileSpawnPoint: {fileID: 0}
-  fireRate: 20
-  shootingForce: 300
-  scatterIntensity: 2
+  fireRate: 15
+  shootingForce: 450
+  scatterIntensity: 1
   shotgunFireRate: 2
-  shotgunShootingForce: 500
-  shotgunScatterIntensity: 10
+  shotgunShootingForce: 650
+  shotgunScatterIntensity: 8
   shotgunPellets: 12
   tapThreshold: 0.2
   projectileSFX: {fileID: 8300000, guid: cedf6b45a301ab34195500b0a1b2e85f, type: 3}
@@ -509,7 +509,7 @@ GameObject:
   - component: {fileID: 1880856145561617452}
   - component: {fileID: 1801020857961106649}
   - component: {fileID: 8922569985777034612}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -542,7 +542,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.9224152, g: 0.83396226, b: 1, a: 1}
+  m_Color: {r: 0.76792455, g: 0.99046266, b: 1, a: 1}
   m_Intensity: 119.3662
   m_Range: 25
   m_SpotAngle: 30
@@ -586,7 +586,7 @@ Light:
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 0.5, y: 0.5}
   m_BounceIntensity: 0
-  m_ColorTemperature: 5643
+  m_ColorTemperature: 9952
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
@@ -725,7 +725,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8017186732547913391}
   - component: {fileID: 1167504809096834866}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -852,7 +852,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1890181636533763141}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Bullet Spawn Point Anchor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -867,10 +867,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8863386009386855077}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.25, y: -0.5, z: 1}
+  m_LocalRotation: {x: -0.08715578, y: 0, z: 0, w: 0.9961947}
+  m_LocalPosition: {x: 0, y: -0.5, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1186609734884020461}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -10, y: 0, z: 0}

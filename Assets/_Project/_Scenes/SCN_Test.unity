@@ -23107,6 +23107,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5402766187829922867, guid: 437c12f0704ee414f9a16897911bbfba,
         type: 3}
+      propertyPath: shootingForce
+      value: 450
+      objectReference: {fileID: 0}
+    - target: {fileID: 5402766187829922867, guid: 437c12f0704ee414f9a16897911bbfba,
+        type: 3}
       propertyPath: scatterIntensity
       value: 1
       objectReference: {fileID: 0}
@@ -23115,6 +23120,11 @@ PrefabInstance:
       propertyPath: projectileSpawnPoint
       value: 
       objectReference: {fileID: 539538936}
+    - target: {fileID: 5402766187829922867, guid: 437c12f0704ee414f9a16897911bbfba,
+        type: 3}
+      propertyPath: shotgunShootingForce
+      value: 650
+      objectReference: {fileID: 0}
     - target: {fileID: 5402766187829922867, guid: 437c12f0704ee414f9a16897911bbfba,
         type: 3}
       propertyPath: shotgunScatterIntensity
