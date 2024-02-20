@@ -32,6 +32,7 @@ public class PlayerDeath : MonoBehaviour
         if (Cursor.lockState != CursorLockMode.Confined)
         {
             Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
         }
     }
 

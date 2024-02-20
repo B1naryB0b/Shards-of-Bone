@@ -15,3 +15,5 @@ MonoBehaviour:
   waves:
   - unit: {fileID: 473026841978952320, guid: 83198942ec7970c439929b2893d35e36, type: 3}
     quantity: 10
+  - unit: {fileID: 499394204284675129, guid: 9f5f09846c54f4248a6c13a4e661d3f5, type: 3}
+    quantity: 1

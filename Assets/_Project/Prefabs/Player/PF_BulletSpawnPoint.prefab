@@ -100,4 +100,4 @@ MonoBehaviour:
   target: {fileID: 0}
   lerpPosition: 1
   lerpRotation: 1
-  smoothFollowSpeed: 50
+  smoothFollowSpeed: 80
