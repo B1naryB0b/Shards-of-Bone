@@ -17,6 +17,10 @@ public class BoidSpawner : MonoBehaviour {
     private enum GizmoType { Never, SelectedOnly, Always }
     [SerializeField] private GizmoType showSpawnRegion;
 
+    [Header("Spawn Direction")]
+    [SerializeField] private bool randomSpawn;
+    [SerializeField] private Vector3 startDirection = Vector3.forward;
+
     private void Start()
     {
         StartCoroutine(Co_SpawnWaves());
@@ -53,10 +57,10 @@ public class BoidSpawner : MonoBehaviour {
 
         if (boid != null)
         {
-            boid.transform.forward = Random.insideUnitSphere;
+            Vector3 direction = randomSpawn ? Random.insideUnitSphere.normalized : startDirection;
+            boid.transform.forward = direction;
             boid.SetColour(colour);
             boidManager.AddBoid(boid);
-            Debug.Log(boid);
         }
         else
         {

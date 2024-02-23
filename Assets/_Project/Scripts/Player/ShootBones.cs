@@ -106,7 +106,6 @@ public class ShootBones : MonoBehaviour
             return (Vector3.zero, Vector3.zero);
 
         Vector3 angleCompensation = projectileSpawnPoint.eulerAngles;
-        Debug.Log((movementAngleCompensationStrength * characterController.velocity.x * Time.deltaTime));
 
         Vector3 positionCompensation = movementPositionCompensationStrength * characterController.velocity * Time.deltaTime;
         angleCompensation = new Vector3(angleCompensation.x, angleCompensation.y + (movementAngleCompensationStrength * characterController.velocity.x * Time.deltaTime), angleCompensation.z);

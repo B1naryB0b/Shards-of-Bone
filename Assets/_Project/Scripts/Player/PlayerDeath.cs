@@ -10,9 +10,9 @@ public class PlayerDeath : MonoBehaviour
 
     private bool isDead = false;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnControllerColliderHit(ControllerColliderHit other)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy"))
         {
             Die();
             Debug.Log("Triggered");

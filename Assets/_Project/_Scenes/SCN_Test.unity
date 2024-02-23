@@ -16832,7 +16832,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &782243053
 Transform:
   m_ObjectHideFlags: 0
@@ -22985,21 +22985,6 @@ PrefabInstance:
       propertyPath: projectileSpawnPoint
       value: 
       objectReference: {fileID: 539538936}
-    - target: {fileID: 5402766187829922867, guid: 437c12f0704ee414f9a16897911bbfba,
-        type: 3}
-      propertyPath: movementCompensationStrength
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5402766187829922867, guid: 437c12f0704ee414f9a16897911bbfba,
-        type: 3}
-      propertyPath: movementAngleCompensationStrength
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 5402766187829922867, guid: 437c12f0704ee414f9a16897911bbfba,
-        type: 3}
-      propertyPath: movementPositionCompensationStrength
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 6822501476935764959, guid: 437c12f0704ee414f9a16897911bbfba,
         type: 3}
       propertyPath: retryScreen

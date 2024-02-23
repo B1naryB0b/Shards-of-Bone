@@ -234,7 +234,6 @@ GameObject:
   - component: {fileID: 4354681342532847843}
   - component: {fileID: 346774915957430928}
   - component: {fileID: 2986347700413022388}
-  - component: {fileID: 4158798787938968778}
   - component: {fileID: 4297549658431617157}
   - component: {fileID: 1907224051198770843}
   - component: {fileID: 5402766187829922867}
@@ -314,29 +313,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &4158798787938968778
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3015661428472352285}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.4
-  m_Height: 1.5
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!143 &4297549658431617157
 CharacterController:
   m_ObjectHideFlags: 0
@@ -381,10 +357,10 @@ MonoBehaviour:
   yMouseSensitivity: 50
   gravity: 20
   friction: 6
-  moveSpeed: 16
+  moveSpeed: 14
   runAcceleration: 18
   runDeacceleration: 10
-  airAcceleration: 1
+  airAcceleration: 0.5
   airDecceleration: 2
   airControl: 10
   sideStrafeAcceleration: 10
@@ -475,6 +451,8 @@ MonoBehaviour:
   projectilePrefab: {fileID: 1719897295978594942, guid: c9894510cd7ce5a41a95f4a8b9f2d325,
     type: 3}
   projectileSpawnPoint: {fileID: 0}
+  movementPositionCompensationStrength: 3
+  movementAngleCompensationStrength: 0.01
   fireRate: 15
   shootingForce: 450
   scatterIntensity: 1
