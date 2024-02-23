@@ -16,17 +16,17 @@ PrefabInstance:
     - target: {fileID: -3394952971628654832, guid: c9894510cd7ce5a41a95f4a8b9f2d325,
         type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
-      value: 0.15000674
+      value: 0.30000064
       objectReference: {fileID: 0}
     - target: {fileID: -3394952971628654832, guid: c9894510cd7ce5a41a95f4a8b9f2d325,
         type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].inSlope
-      value: -0.15000674
+      value: -0.30000064
       objectReference: {fileID: 0}
     - target: {fileID: -3394952971628654832, guid: c9894510cd7ce5a41a95f4a8b9f2d325,
         type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].outSlope
-      value: -0.15000674
+      value: -0.30000064
       objectReference: {fileID: 0}
     - target: {fileID: -2292062299519877129, guid: c9894510cd7ce5a41a95f4a8b9f2d325,
         type: 3}
@@ -46,17 +46,17 @@ PrefabInstance:
     - target: {fileID: 2059725950970878148, guid: c9894510cd7ce5a41a95f4a8b9f2d325,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2059725950970878148, guid: c9894510cd7ce5a41a95f4a8b9f2d325,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2059725950970878148, guid: c9894510cd7ce5a41a95f4a8b9f2d325,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2059725950970878148, guid: c9894510cd7ce5a41a95f4a8b9f2d325,
         type: 3}

@@ -11,17 +11,19 @@ public class ShootBones : MonoBehaviour
     [Header("Continuous Shot")]
     [SerializeField] private float fireRate = 0.5f;
     [SerializeField] private float shootingForce = 1000f;
-    [SerializeField] private float scatterIntensity = 0.5f;
+    [SerializeField] private float scatterAngleMultiplier = 0.5f;
+    [SerializeField] private float scatterPosition = 0.5f;
 
     [Header("Shotgun Shot")]
     [SerializeField] private float shotgunFireRate = 0.5f;
     [SerializeField] private float shotgunShootingForce = 2000f;
-    [SerializeField] private float shotgunScatterIntensity = 0.5f;
+    [SerializeField] private float shotgunScatterAngleMultiplier = 0.5f;
+    [SerializeField] private float shotgunScatterPosition = 0.5f;
     [SerializeField] private int shotgunPellets = 10;
     [SerializeField] private float tapThreshold = 0.2f;
 
-    private float nextFireTime = 0f;
-    private float shotgunNextFireTime = 0f;
+    private float fireCooldown = 0f;
+    private float shotgunFireCooldown = 0f;
     private bool isButtonPressed = false;
     private float buttonPressedTime = 0f;
 
@@ -32,10 +34,17 @@ public class ShootBones : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 0.05f;
         characterController = GetComponent<CharacterController>();
     }
 
     private void Update()
+    {
+        HandleShootingInput();
+        UpdateCooldowns();
+    }
+
+    private void HandleShootingInput()
     {
         if (Input.GetButtonDown("Fire1"))
         {
@@ -43,33 +52,40 @@ public class ShootBones : MonoBehaviour
             buttonPressedTime = Time.time;
         }
 
-        if (isButtonPressed && Time.time - buttonPressedTime > tapThreshold)
+        if (isButtonPressed && Time.time - buttonPressedTime > tapThreshold && fireCooldown <= 0f)
         {
-            if (Time.time >= nextFireTime)
-            {
-                nextFireTime = Time.time + (1f / fireRate);
-                ShootProjectile();
-            }
+            ShootProjectile();
+            fireCooldown = 1f / fireRate;
         }
 
         if (Input.GetButtonUp("Fire1"))
         {
-            if (Time.time - buttonPressedTime <= tapThreshold)
+            if (Time.time - buttonPressedTime <= tapThreshold && shotgunFireCooldown <= 0f)
             {
-                if (Time.time >= shotgunNextFireTime)
-                {
-                    shotgunNextFireTime = Time.time + (1f / shotgunFireRate);
-                    ShootShotgunBlast();
-                }
+                ShootShotgunBlast();
+                shotgunFireCooldown = 1f / shotgunFireRate;
             }
-            isButtonPressed = false; // Reset the button pressed state
+            isButtonPressed = false;
+        }
+    }
+
+    private void UpdateCooldowns()
+    {
+        if (fireCooldown > 0f)
+        {
+            fireCooldown -= Time.deltaTime;
+        }
+
+        if (shotgunFireCooldown > 0f)
+        {
+            shotgunFireCooldown -= Time.deltaTime;
         }
     }
 
     private void ShootProjectile()
     {
         AudioController.Instance.PlaySound(projectileSFX, 0.3f);
-        InstantiateAndShoot(projectileSpawnPoint, shootingForce, scatterIntensity);
+        InstantiateAndShoot(projectileSpawnPoint, shootingForce, scatterAngleMultiplier, scatterPosition);
     }
 
     private void ShootShotgunBlast()
@@ -78,21 +94,20 @@ public class ShootBones : MonoBehaviour
 
         for (int i = 0; i < shotgunPellets; i++)
         {
-            InstantiateAndShoot(projectileSpawnPoint, shotgunShootingForce, shotgunScatterIntensity);
+            InstantiateAndShoot(projectileSpawnPoint, shotgunShootingForce, shotgunScatterAngleMultiplier, shotgunScatterPosition);
         }
     }
 
-    private void InstantiateAndShoot(Transform spawnPoint, float force, float scatter)
+    private void InstantiateAndShoot(Transform spawnPoint, float force, float scatterAngleMultiplier, float scatterPosition)
     {
         if (projectilePrefab == null || spawnPoint == null) return;
 
-        (Vector3 positionOffset, Vector3 eulerRotationOffset) = MovementCompensation();
-        Vector3 compensatedPosition = spawnPoint.position + positionOffset;
-        Quaternion scatteredAngle = AddVarianceToRotation(spawnPoint.rotation /** Quaternion.Euler(eulerRotationOffset)*/, scatter);
-
+        Vector3 positionOffset = MovementCompensation();
+        Vector3 positionVariance = AddVarianceToPosition(scatterPosition);
+        Vector3 compensatedPosition = spawnPoint.position + positionOffset + positionVariance;
+        Quaternion scatteredAngle = AddVarianceToRotation(spawnPoint.rotation, scatterAngleMultiplier);
         GameObject projectile = Instantiate(projectilePrefab, compensatedPosition, scatteredAngle);
         Rigidbody projectileRigidbody = projectile.GetComponent<Rigidbody>();
-
         if (projectileRigidbody != null)
         {
             projectileRigidbody.AddForce(projectile.transform.forward * force);
@@ -100,32 +115,31 @@ public class ShootBones : MonoBehaviour
     }
 
 
-    private (Vector3, Vector3) MovementCompensation()
+    private Vector3 MovementCompensation()
     {
         if (characterController == null || characterController.velocity.sqrMagnitude < Mathf.Epsilon)
-            return (Vector3.zero, Vector3.zero);
-
-        Vector3 angleCompensation = projectileSpawnPoint.eulerAngles;
+            return Vector3.zero;
 
         Vector3 positionCompensation = movementPositionCompensationStrength * characterController.velocity * Time.deltaTime;
-        angleCompensation = new Vector3(angleCompensation.x, angleCompensation.y + (movementAngleCompensationStrength * characterController.velocity.x * Time.deltaTime), angleCompensation.z);
 
-        return (positionCompensation, angleCompensation);
+        return positionCompensation;
     }
 
-
-
-    public Quaternion AddVarianceToRotation(Quaternion originalRotation, float variance)
+    private Vector3 AddVarianceToPosition(float variance)
     {
-        // Convert the original rotation to Euler angles
+        float varianceX = Random.Range(-variance, variance);
+        float varianceY = Random.Range(-variance, variance);
+
+        return new Vector3(varianceX, varianceY, 0f);
+    }
+
+    private Quaternion AddVarianceToRotation(Quaternion originalRotation, float variance)
+    {
         Vector3 euler = originalRotation.eulerAngles;
-
-        // Add variance to the x and y angles
-        euler.x += UnityEngine.Random.Range(-variance, variance);
-        euler.y += UnityEngine.Random.Range(-variance, variance);
-
-        // Return the new rotation as a Quaternion
+        euler.x += Random.Range(-variance, variance);
+        euler.y += Random.Range(-variance, variance);
         return Quaternion.Euler(euler);
     }
+
 
 }

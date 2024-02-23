@@ -23,7 +23,7 @@ public class SplinterProjectiles : MonoBehaviour
 
                 Quaternion variedRotation = AddVarianceToRotation(transform.rotation, scatterAngle);
                 Vector3 variedDirection = variedRotation * Vector3.forward;
-                rb.velocity = variedDirection * speed;
+                rb.velocity = variedDirection * speed + (Vector3.up * -originalVelocity.y);
             }
 
             Destroy(gameObject);
