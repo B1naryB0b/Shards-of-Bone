@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8231261320434770836}
   - component: {fileID: 1410739503773004377}
   - component: {fileID: 5528778764185582650}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PF_Crawler
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -70,8 +70,6 @@ MonoBehaviour:
   hitSFX: {fileID: 8300000, guid: 2aab76ed0d24af94d8af9e1984bbb166, type: 3}
   flashDuration: 0.05
   hitColor: {r: 1, g: 1, b: 1, a: 1}
-  bulletDamage: 3
-  splinterDamage: 1
   enemyObject: {fileID: 0}
 --- !u!33 &7865647095648450564
 MeshFilter:

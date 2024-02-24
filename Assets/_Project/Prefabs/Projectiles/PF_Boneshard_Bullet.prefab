@@ -169,7 +169,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 11db0534b819c744bb8d001e9bda46b0,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: -3887634896770576828}
+      addedObject: {fileID: -2184913073787414804}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 11db0534b819c744bb8d001e9bda46b0,
         type: 3}
       insertIndex: -1
@@ -191,7 +191,7 @@ Rigidbody:
   serializedVersion: 4
   m_Mass: 0.1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -233,8 +233,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32c5fb8ecb56881498e55045ace14ba2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
---- !u!114 &-3887634896770576828
+  damage: 4
+--- !u!114 &-2184913073787414804
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

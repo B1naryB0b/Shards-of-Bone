@@ -34,7 +34,6 @@ public class ShootBones : MonoBehaviour
 
     private void Start()
     {
-        Time.timeScale = 0.05f;
         characterController = GetComponent<CharacterController>();
     }
 
@@ -84,13 +83,13 @@ public class ShootBones : MonoBehaviour
 
     private void ShootProjectile()
     {
-        AudioController.Instance.PlaySound(projectileSFX, 0.3f);
+        AudioController.Instance.PlaySound(projectileSFX, 0.1f);
         InstantiateAndShoot(projectileSpawnPoint, shootingForce, scatterAngleMultiplier, scatterPosition);
     }
 
     private void ShootShotgunBlast()
     {
-        AudioController.Instance.PlaySound(shotgunSFX);
+        AudioController.Instance.PlaySound(shotgunSFX, 0.5f);
 
         for (int i = 0; i < shotgunPellets; i++)
         {

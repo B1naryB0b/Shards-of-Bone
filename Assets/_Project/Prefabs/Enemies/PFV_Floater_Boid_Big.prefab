@@ -88,6 +88,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6289442635354149452, guid: 83198942ec7970c439929b2893d35e36,
+        type: 3}
+      propertyPath: Priority
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 6289442635354149452, guid: 83198942ec7970c439929b2893d35e36,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6289442635354149452, guid: 83198942ec7970c439929b2893d35e36,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6289442635354149452, guid: 83198942ec7970c439929b2893d35e36,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: fa2853031356b2e42858154ca777c833, type: 3}
+    - target: {fileID: 6289442635354149452, guid: 83198942ec7970c439929b2893d35e36,
+        type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].value
+      value: 0.9999962
+      objectReference: {fileID: 0}
+    - target: {fileID: 6289442635354149452, guid: 83198942ec7970c439929b2893d35e36,
+        type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].inSlope
+      value: -0.99853134
+      objectReference: {fileID: 0}
+    - target: {fileID: 6289442635354149452, guid: 83198942ec7970c439929b2893d35e36,
+        type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].outSlope
+      value: -0.99853134
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

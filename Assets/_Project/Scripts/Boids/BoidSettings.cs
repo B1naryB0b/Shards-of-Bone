@@ -4,7 +4,8 @@ using UnityEngine;
 
 [CreateAssetMenu]
 public class BoidSettings : ScriptableObject {
-    // Settings
+
+    [Header ("Flocking")]
     public float minSpeed = 2;
     public float maxSpeed = 5;
     public float perceptionRadius = 2.5f;
@@ -22,5 +23,10 @@ public class BoidSettings : ScriptableObject {
     public float boundsRadius = .27f;
     public float avoidCollisionWeight = 10;
     public float collisionAvoidDst = 5;
+
+    [Header ("Global Forces")]
+    public float gravity = -9.81f;
+    public float buoyancyThreshold = -5f;
+    public float buoyancyStrength = 15f;
 
 }

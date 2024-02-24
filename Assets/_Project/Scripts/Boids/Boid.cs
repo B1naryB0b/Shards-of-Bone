@@ -88,9 +88,18 @@ public class Boid : MonoBehaviour {
             acceleration += collisionAvoidForce;
         }
 
+        Vector3 gravityForce = new Vector3(0, settings.gravity, 0);
+        acceleration += gravityForce;
+
+        if (position.y < settings.buoyancyThreshold)
+        {
+            Vector3 buoyancyForce = new Vector3(0, settings.buoyancyStrength, 0);
+            acceleration += buoyancyForce;
+        }
+
         velocity += acceleration * Time.deltaTime;
         float speed = velocity.magnitude;
-        Vector3 dir = velocity / speed;
+        Vector3 dir = speed > 0 ? velocity / speed : Vector3.zero;
         speed = Mathf.Clamp (speed, settings.minSpeed, settings.maxSpeed);
         velocity = dir * speed;
 

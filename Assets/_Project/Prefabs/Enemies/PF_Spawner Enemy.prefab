@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6830953630570295227}
   - component: {fileID: 1216704689923012403}
   - component: {fileID: 5195280078213460395}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PF_Spawner Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -87,8 +87,6 @@ MonoBehaviour:
   hitSFX: {fileID: 8300000, guid: 2aab76ed0d24af94d8af9e1984bbb166, type: 3}
   flashDuration: 0.05
   hitColor: {r: 1, g: 1, b: 1, a: 1}
-  bulletDamage: 3
-  splinterDamage: 1
   enemyObject: {fileID: 1580982361717591071}
 --- !u!33 &6046672536439292916
 MeshFilter:
@@ -198,7 +196,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6396692612396773449}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Spawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -40,17 +40,23 @@ struct Cmd
 
 public class CPMPlayer : MonoBehaviour
 {
+    [Header ("Camera")]
     public Transform playerView;     // Camera
     public float playerViewYOffset = 0.6f; // The height at which the camera is bound to
     public float xMouseSensitivity = 30.0f;
     public float yMouseSensitivity = 30.0f;
-//
+    [SerializeField] private float tiltAngle = 10f;
+    [SerializeField] private float tiltSmooth = 5f;
+    private float currentTilt = 0f;
+    //
+    [Header ("Physics")]
     /*Frame occuring factors*/
     public float gravity = 20.0f;
 
     public float friction = 6; //Ground friction
 
     /* Movement stuff */
+    [Header ("Movement")]
     public float moveSpeed = 7.0f;                // Ground move speed
     public float runAcceleration = 14.0f;         // Ground accel
     public float runDeacceleration = 10.0f;       // Deacceleration that occurs when running on the ground
@@ -62,6 +68,7 @@ public class CPMPlayer : MonoBehaviour
     public float jumpSpeed = 8.0f;                // The speed at which the character's up axis gains when hitting jump
     public bool holdJumpToBhop = false;           // When enabled allows player to just hold jump button to keep on bhopping perfectly. Beware: smells like casual.
 
+    [Header ("FPS")]
     /*print() style */
     public GUIStyle style;
 
@@ -143,9 +150,30 @@ public class CPMPlayer : MonoBehaviour
             rotX = 90;
 
         this.transform.rotation = Quaternion.Euler(0, rotY, 0); // Rotates the collider
-        playerView.rotation     = Quaternion.Euler(rotX, rotY, 0); // Rotates the camera
 
-        
+        if (_controller.isGrounded)
+        {
+            float targetTilt = 0f;
+            if (_cmd.rightMove < 0) // Moving left
+            {
+                targetTilt = tiltAngle;
+            }
+            else if (_cmd.rightMove > 0) // Moving right
+            {
+                targetTilt = -tiltAngle;
+            }
+
+            // Smoothly interpolate the current tilt towards the target tilt
+            currentTilt = Mathf.Lerp(currentTilt, targetTilt, tiltSmooth * Time.deltaTime);
+            playerView.rotation = Quaternion.Euler(rotX, rotY, currentTilt);
+        }
+        else
+        {
+            // Reset the tilt when not grounded
+            currentTilt = Mathf.Lerp(currentTilt, 0f, tiltSmooth * Time.deltaTime);
+            playerView.rotation = Quaternion.Euler(rotX, rotY, currentTilt);
+        }
+
 
         /* Movement, here's the important part */
         QueueJump();
@@ -196,9 +224,13 @@ public class CPMPlayer : MonoBehaviour
         }
 
         if(Input.GetButtonDown("Jump") && !wishJump)
+        {
             wishJump = true;
-        if(Input.GetButtonUp("Jump"))
+        }   
+        if (Input.GetButtonUp("Jump"))
+        {
             wishJump = false;
+        }
     }
 
     /**
@@ -257,8 +289,8 @@ public class CPMPlayer : MonoBehaviour
         float k;
 
         // Can't control movement if not moving forward or backward
-        if(Mathf.Abs(_cmd.forwardMove) < 0.001 || Mathf.Abs(wishspeed) < 0.001)
-            return;
+/*        if(Mathf.Abs(_cmd.forwardMove) < 0.001 || Mathf.Abs(wishspeed) < 0.001)
+            return;*/
         zspeed = playerVelocity.y;
         playerVelocity.y = 0;
         /* Next two lines are equivalent to idTech's VectorNormalize() */

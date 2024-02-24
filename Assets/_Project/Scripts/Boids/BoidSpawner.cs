@@ -59,7 +59,6 @@ public class BoidSpawner : MonoBehaviour {
         {
             Vector3 direction = randomSpawn ? Random.insideUnitSphere.normalized : startDirection;
             boid.transform.forward = direction;
-            boid.SetColour(colour);
             boidManager.AddBoid(boid);
         }
         else
