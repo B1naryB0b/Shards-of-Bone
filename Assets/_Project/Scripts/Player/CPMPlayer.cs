@@ -404,6 +404,13 @@ public class CPMPlayer : MonoBehaviour
         playerVelocity.z += accelspeed * wishdir.z;
     }
 
+    public void AddExternalMovementForce(Vector3 force)
+    {
+        playerVelocity += force;
+        playerVelocity.y += force.y;
+    }
+
+
     private void OnGUI()
     {
         GUI.Label(new Rect(0, 0, 400, 100), "FPS: " + fps, style);

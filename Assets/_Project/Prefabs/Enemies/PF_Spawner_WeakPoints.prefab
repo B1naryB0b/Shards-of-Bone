@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3818964743201789931}
   - component: {fileID: 1360944965838249917}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: Boid Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   - component: {fileID: 5547402655123159812}
   - component: {fileID: 5137200690788268593}
   - component: {fileID: 6375212095248150854}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: Mesh
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -219,7 +219,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1258819341113686024}
   - component: {fileID: 620866962126532686}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: PF_Spawner_WeakPoints
   m_TagString: Enemy
   m_Icon: {fileID: 0}
