@@ -1,2 +1,2 @@
 # Shards-of-Bone
- Devil daggers inspired FPS game
+An arcade arena FPS game
