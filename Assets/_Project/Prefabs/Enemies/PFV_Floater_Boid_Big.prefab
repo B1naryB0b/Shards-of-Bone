@@ -23,6 +23,11 @@ PrefabInstance:
       propertyPath: health
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 4641500970656267600, guid: 83198942ec7970c439929b2893d35e36,
+        type: 3}
+      propertyPath: hitSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: ed86fc5b6e8d3db4eb63b908ac09da86, type: 3}
     - target: {fileID: 5777968359766161639, guid: 83198942ec7970c439929b2893d35e36,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -107,7 +112,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: fa2853031356b2e42858154ca777c833, type: 3}
+      objectReference: {fileID: 8300000, guid: fdd089f18f3bf4a4fbe53ff7270c326e, type: 3}
     - target: {fileID: 6289442635354149452, guid: 83198942ec7970c439929b2893d35e36,
         type: 3}
       propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].value

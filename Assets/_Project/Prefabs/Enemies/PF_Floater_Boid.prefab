@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
-  hitSFX: {fileID: 8300000, guid: 2aab76ed0d24af94d8af9e1984bbb166, type: 3}
+  hitSFX: {fileID: 8300000, guid: ed86fc5b6e8d3db4eb63b908ac09da86, type: 3}
   flashDuration: 0.05
   hitColor: {r: 1, g: 1, b: 1, a: 1}
   enemyObject: {fileID: 473026841978952320}
@@ -155,15 +155,15 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: fc7ff05742359aa4b946f06b459dfb7e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 014ef248d2768f1449be2341715ecc8c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 75
+  Priority: 65
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 20
