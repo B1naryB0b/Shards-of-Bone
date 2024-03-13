@@ -7,21 +7,24 @@ using UnityEngine.UI;
 public class PlayerDeath : MonoBehaviour
 {
     [SerializeField] private GameObject retryScreen;
+    [SerializeField] private GameObject crosshair;
 
     private bool isDead = false;
 
-    private void OnControllerColliderHit(ControllerColliderHit other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy"))
         {
             Die();
-            Debug.Log("Triggered");
         }
     }
+
 
     private void Die()
     {
         gameObject.GetComponent<CPMPlayer>().enabled = false;
+        gameObject.GetComponent<ShootBones>().enabled = false;
+        crosshair.SetActive(false);
         retryScreen.SetActive(true);
 
         UnlockCursor();
