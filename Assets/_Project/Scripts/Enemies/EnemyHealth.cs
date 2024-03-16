@@ -59,7 +59,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (health <= 0)
         {
-            AudioController.Instance.PlaySound(hitSFX);
+            AudioController.Instance.PlaySound(hitSFX, 0.5f);
 
             if (enemyObject != null)
             {

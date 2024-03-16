@@ -5,6 +5,7 @@ public class Spawner : MonoBehaviour
 {
     [SerializeField] private WaveSO waveSO;
     [SerializeField] private Transform spawnPoint;
+    [SerializeField] private float initialDelay = 5f;
     [SerializeField] private float waveCooldown = 10f;
     [SerializeField] private float spawnRadius = 2f;
 
@@ -18,6 +19,8 @@ public class Spawner : MonoBehaviour
 
     private IEnumerator Co_SpawnWaves()
     {
+        yield return new WaitForSeconds(initialDelay);
+
         while (true)
         {
             StartCoroutine(Co_SpawnWave());

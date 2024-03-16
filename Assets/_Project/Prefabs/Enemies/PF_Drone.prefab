@@ -50,9 +50,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd2c29b310dfc14498a09fe7c7d292d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followForceMagnitude: 30
-  crawlFrequency: 5
-  crawlAmplitude: 1
+  followForceMagnitude: 55
+  crawlFrequency: 1
+  crawlAmplitude: 4
   playerTransform: {fileID: 0}
 --- !u!114 &4641500970656267600
 MonoBehaviour:
@@ -99,7 +99,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c85e4686c11f15e408583ba46c936e80, type: 2}
+  - {fileID: 2100000, guid: cc0878153bebcb844923866701c722e7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

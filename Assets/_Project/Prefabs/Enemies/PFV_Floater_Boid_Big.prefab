@@ -101,12 +101,12 @@ PrefabInstance:
     - target: {fileID: 6289442635354149452, guid: 83198942ec7970c439929b2893d35e36,
         type: 3}
       propertyPath: m_Volume
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6289442635354149452, guid: 83198942ec7970c439929b2893d35e36,
         type: 3}
       propertyPath: MaxDistance
-      value: 30
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 6289442635354149452, guid: 83198942ec7970c439929b2893d35e36,
         type: 3}
