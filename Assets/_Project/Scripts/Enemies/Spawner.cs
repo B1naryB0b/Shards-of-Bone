@@ -49,10 +49,6 @@ public class Spawner : MonoBehaviour
         {
             floater.SetPlayerTransform(playerTransform);
         }
-        if (enemy.TryGetComponent(out CrawlerMovement crawler))
-        {
-            crawler.SetPlayerTransform(playerTransform);
-        }
         if (enemy.TryGetComponent(out LurkerMovement lurker))
         {
             lurker.SetPlayerTransform(playerTransform);

@@ -23,14 +23,12 @@ public class WaveManager : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (timer > waves[currentWave].SpawnTime)
-        {
-            if (currentWave < waves.Count - 1)
-            {
-                currentWave++;
-                SpawnWave();
-            }
-        }
+        if (!(timer > waves[currentWave].SpawnTime)) return;
+        
+        if (currentWave >= waves.Count - 1) return;
+        
+        currentWave++;
+        SpawnWave();
     }
 
 

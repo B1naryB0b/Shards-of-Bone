@@ -22,17 +22,14 @@ public class EnemyHealth : MonoBehaviour
         originalColor = enemyRenderer.material.GetColor("_EmissiveColor");
     }
 
-    public void Flash(float duration)
+    private void Flash(float duration)
     {
         StartCoroutine(Co_Flash(duration));
     }
 
     private IEnumerator Co_Flash(float duration)
     {
-        if (enemyRenderer == null)
-        {
-            yield break;
-        }
+        if (enemyRenderer == null) yield break;
 
         enemyRenderer.material.SetColor("_EmissiveColor", hitColor);
 
