@@ -4,30 +4,24 @@ using UnityEngine;
 
 public class Boid : MonoBehaviour {
 
-    BoidSettings settings;
+    private BoidSettings settings;
 
     // State
-    [HideInInspector]
-    public Vector3 position;
-    [HideInInspector]
-    public Vector3 forward;
-    Vector3 velocity;
+    [HideInInspector] public Vector3 position;
+    [HideInInspector] public Vector3 forward;
+    private Vector3 velocity;
 
     // To update:
-    Vector3 acceleration;
-    [HideInInspector]
-    public Vector3 avgFlockHeading;
-    [HideInInspector]
-    public Vector3 avgAvoidanceHeading;
-    [HideInInspector]
-    public Vector3 centreOfFlockmates;
-    [HideInInspector]
-    public int numPerceivedFlockmates;
+    private Vector3 acceleration;
+    [HideInInspector] public Vector3 avgFlockHeading;
+    [HideInInspector] public Vector3 avgAvoidanceHeading;
+    [HideInInspector] public Vector3 centreOfFlockmates;
+    [HideInInspector] public int numPerceivedFlockmates;
 
     // Cached
-    Material material;
-    Transform cachedTransform;
-    Transform target;
+    private Material material;
+    private Transform cachedTransform;
+    private Transform target;
 
     void Awake () {
         material = transform.GetComponentInChildren<MeshRenderer> ().material;

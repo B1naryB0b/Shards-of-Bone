@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LurkerMovement : MonoBehaviour
+public class LurkerMovement : MonoBehaviour, IPlayerTracker
 {
     [SerializeField] private float movementSpeed = 10f;
     [SerializeField] private float hopFrequency = 5f;

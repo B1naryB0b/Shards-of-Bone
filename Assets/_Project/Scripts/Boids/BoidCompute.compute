@@ -19,7 +19,7 @@ float avoidRadius;
 [numthreads(threadGroupSize,1,1)]
 void CSMain (uint3 id : SV_DispatchThreadID)
 {
-    for (int indexB = 0; indexB < numBoids; indexB ++) {
+    for (uint indexB = 0; indexB < numBoids; indexB ++) {
         if (id.x != indexB) {
             Boid boidB = boids[indexB];
             float3 offset = boidB.position - boids[id.x].position;

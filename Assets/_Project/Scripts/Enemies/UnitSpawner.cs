@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public class UnitSpawner : MonoBehaviour
 {
     [SerializeField] private WaveSO waveSO;
     [SerializeField] private Transform spawnPoint;
@@ -9,11 +9,11 @@ public class Spawner : MonoBehaviour
     [SerializeField] private float waveCooldown = 10f;
     [SerializeField] private float spawnRadius = 2f;
 
-    private Transform playerTransform;
+    private Transform _playerTransform;
 
     private void Start()
     {
-        playerTransform = FindObjectOfType<CharacterController>().transform;
+        _playerTransform = FindObjectOfType<CharacterController>().transform;
         StartCoroutine(Co_SpawnWaves());
     }
 
@@ -45,13 +45,11 @@ public class Spawner : MonoBehaviour
     private void SpawnUnit(GameObject unit, Vector3 position)
     {
         GameObject enemy = Instantiate(unit, position, spawnPoint.rotation);
-        if (enemy.TryGetComponent(out FloaterMovement floater))
+        IPlayerTracker playerTracker = enemy.GetComponent<IPlayerTracker>();
+        if (playerTracker != null)
         {
-            floater.SetPlayerTransform(playerTransform);
-        }
-        if (enemy.TryGetComponent(out LurkerMovement lurker))
-        {
-            lurker.SetPlayerTransform(playerTransform);
+            playerTracker.SetPlayerTransform(_playerTransform);
         }
     }
+
 }

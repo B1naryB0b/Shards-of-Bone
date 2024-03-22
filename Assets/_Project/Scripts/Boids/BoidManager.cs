@@ -1,92 +1,104 @@
-﻿using System.Collections;
+﻿using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class BoidManager : MonoBehaviour {
-
-    const int threadGroupSize = 1024;
+public class BoidManager : MonoBehaviour
+{
+    const int ThreadGroupSize = 1024;
 
     public BoidSettings settings;
     public ComputeShader compute;
     public Transform target;
-    List<Boid> boids = new List<Boid>();
 
-/*    void Start()
-    {
-        Boid[] boidArray = FindObjectsOfType<Boid>();
-        boids.AddRange(boidArray);
-        foreach (Boid b in boids)
-        {
-            b.Initialize(settings, target);
-        }
-    }*/
-
-    public void AddBoid(Boid boid)
-    {
-        boids.Add(boid);
-        boid.Initialize(settings, target);
-    }
-
-    public void RemoveBoid(Boid boid)
-    {
-        boids.Remove(boid);
-    }
+    private List<Boid> boids = new List<Boid>();
+    private ComputeBuffer boidBuffer;
+    private BoidData[] boidData;
 
     void Update()
     {
-        if (boids.Count > 0)
+        int numBoids = boids.Count;
+        if (numBoids <= 0)
         {
-            int numBoids = boids.Count;
-            var boidData = new BoidData[numBoids];
+            boids.RemoveAll(boid => boid == null);
+            return;
+        }
 
-            for (int i = 0; i < numBoids; i++)
-            {
-                boidData[i].position = boids[i].position;
-                boidData[i].direction = boids[i].forward;
-            }
+        if (boidData == null || boidData.Length != numBoids)
+        {
+            if (boidBuffer != null)
+                boidBuffer.Release();
 
-            var boidBuffer = new ComputeBuffer(numBoids, BoidData.Size);
-            boidBuffer.SetData(boidData);
+            boidData = new BoidData[numBoids];
+            boidBuffer = new ComputeBuffer(numBoids, BoidData.Size);
+        }
 
-            compute.SetBuffer(0, "boids", boidBuffer);
-            compute.SetInt("numBoids", numBoids);
-            compute.SetFloat("viewRadius", settings.perceptionRadius);
-            compute.SetFloat("avoidRadius", settings.avoidanceRadius);
+        for (int i = 0; i < numBoids; i++)
+        {
+            boidData[i].position = boids[i].position;
+            boidData[i].direction = boids[i].forward;
+        }
 
-            int threadGroups = Mathf.CeilToInt(numBoids / (float)threadGroupSize);
-            compute.Dispatch(0, threadGroups, 1, 1);
+        boidBuffer.SetData(boidData);
 
-            boidBuffer.GetData(boidData);
+        compute.SetBuffer(0, "boids", boidBuffer);
+        compute.SetInt("numBoids", numBoids);
+        compute.SetFloat("viewRadius", settings.perceptionRadius);
+        compute.SetFloat("avoidRadius", settings.avoidanceRadius);
 
-            for (int i = 0; i < numBoids; i++)
-            {
-                boids[i].avgFlockHeading = boidData[i].flockHeading;
-                boids[i].centreOfFlockmates = boidData[i].flockCentre;
-                boids[i].avgAvoidanceHeading = boidData[i].avoidanceHeading;
-                boids[i].numPerceivedFlockmates = boidData[i].numFlockmates;
+        int threadGroups = Mathf.CeilToInt(numBoids / (float)ThreadGroupSize);
+        compute.Dispatch(0, threadGroups, 1, 1);
 
-                boids[i].UpdateBoid();
-            }
+        boidBuffer.GetData(boidData);
 
-            boidBuffer.Release();
+        for (int i = 0; i < numBoids; i++)
+        {
+            boids[i].avgFlockHeading = boidData[i].flockHeading;
+            boids[i].centreOfFlockmates = boidData[i].flockCentre;
+            boids[i].avgAvoidanceHeading = boidData[i].avoidanceHeading;
+            boids[i].numPerceivedFlockmates = boidData[i].numFlockmates;
+
+            boids[i].UpdateBoid();
         }
 
         boids.RemoveAll(boid => boid == null);
     }
 
-    public struct BoidData {
+    public void AddBoid(Boid boid)
+    {
+        boids.Add(boid);
+        boid.Initialize(settings, target);
+        UpdateBuffer();
+    }
+
+    public void RemoveBoid(Boid boid)
+    {
+        boids.Remove(boid);
+        UpdateBuffer();
+    }
+
+    private void UpdateBuffer()
+    {
+        if (boidBuffer != null)
+            boidBuffer.Release();
+
+        boidData = new BoidData[boids.Count];
+        boidBuffer = new ComputeBuffer(boids.Count, BoidData.Size);
+    }
+
+    void OnDestroy()
+    {
+        if (boidBuffer != null)
+            boidBuffer.Release();
+    }
+
+    public struct BoidData
+    {
         public Vector3 position;
         public Vector3 direction;
-
         public Vector3 flockHeading;
         public Vector3 flockCentre;
         public Vector3 avoidanceHeading;
         public int numFlockmates;
 
-        public static int Size {
-            get {
-                return sizeof (float) * 3 * 5 + sizeof (int);
-            }
-        }
+        public static int Size => sizeof(float) * 3 * 5 + sizeof(int);
     }
 }
