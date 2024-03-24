@@ -45,10 +45,19 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _BaseColorMap:
+        m_Texture: {fileID: 10309, guid: 0000000000000000f000000000000000, type: 0}
+        m_Scale: {x: 0.5, y: 0.5}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 10309, guid: 0000000000000000f000000000000000, type: 0}
+        m_Scale: {x: 0.5, y: 0.5}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
     - _EmissiveIntensity: 1.66
+    - _InvTilingScale: 2
     - _UseEmissiveIntensity: 1
     m_Colors:
     - _EmissiveColor: {r: 0.020245614, g: 0.020245614, b: 0.020245614, a: 1.66}

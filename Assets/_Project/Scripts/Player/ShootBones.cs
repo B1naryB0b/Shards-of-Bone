@@ -1,4 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class ShootBones : MonoBehaviour
 {
@@ -21,6 +24,8 @@ public class ShootBones : MonoBehaviour
     [SerializeField] private float shotgunScatterPosition = 0.5f;
     [SerializeField] private int shotgunPellets = 10;
     [SerializeField] private float tapThreshold = 0.2f;
+    
+    [HideInInspector] public float shotgunJumpDelay;
 
     private float fireCooldown = 0f;
     private float shotgunFireCooldown = 0f;
@@ -30,11 +35,13 @@ public class ShootBones : MonoBehaviour
     [SerializeField] private AudioClip projectileSFX;
     [SerializeField] private AudioClip shotgunSFX;
 
-    private CharacterController characterController;
+    private CharacterController _characterController;
+
+    public bool isShotgunFired;
 
     private void Start()
     {
-        characterController = GetComponent<CharacterController>();
+        _characterController = GetComponent<CharacterController>();
     }
 
     private void Update()
@@ -95,6 +102,15 @@ public class ShootBones : MonoBehaviour
         {
             InstantiateAndShoot(projectileSpawnPoint, shotgunShootingForce, shotgunScatterAngleMultiplier, shotgunScatterPosition);
         }
+        
+        isShotgunFired = true;
+        StartCoroutine(Co_ResetShotgunJump());
+    }
+    
+    private IEnumerator Co_ResetShotgunJump()
+    {
+        yield return new WaitForSeconds(shotgunJumpDelay);
+        isShotgunFired = false;
     }
 
     private void InstantiateAndShoot(Transform spawnPoint, float force, float scatterAngleMultiplier, float scatterPosition)
@@ -116,10 +132,10 @@ public class ShootBones : MonoBehaviour
 
     private Vector3 MovementCompensation()
     {
-        if (characterController == null || characterController.velocity.sqrMagnitude < Mathf.Epsilon)
+        if (_characterController == null || _characterController.velocity.sqrMagnitude < Mathf.Epsilon)
             return Vector3.zero;
 
-        Vector3 positionCompensation = movementPositionCompensationStrength * characterController.velocity * Time.deltaTime;
+        Vector3 positionCompensation = movementPositionCompensationStrength * _characterController.velocity * Time.deltaTime;
 
         return positionCompensation;
     }

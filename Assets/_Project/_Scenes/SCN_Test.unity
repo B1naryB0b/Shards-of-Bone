@@ -637,6 +637,22 @@ CapsuleCollider:
   m_Height: 1.5
   m_Direction: 1
   m_Center: {x: 0, y: -0.25, z: 0}
+--- !u!114 &723106738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723106716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7163d0fa1dfc4e19b033f90807262fb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 8
+  minimumDownwardAngle: 45
+  jumpTimeWindow: 0.2
+  shotgunJumpSFX: {fileID: 8300000, guid: 998cd8c1c03514d4aaf1b40b1f04814c, type: 3}
 --- !u!1 &739295349 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6446994448906957851, guid: b9307dc2b51308a4f9008de383d512ba,
@@ -696,59 +712,29 @@ MonoBehaviour:
   spawnerTarget: {fileID: 782243053}
   boidManager: {fileID: 894212746}
   waves:
-  - enemyPrefab: {fileID: 5757039468991161957, guid: 60cea6d4aaa060d478109961db6c4151,
-      type: 3}
+  - unitBatches: {fileID: 11400000, guid: e864aca6d623d97409b128adc3ed30aa, type: 2}
     spawnTime: 3
-  - enemyPrefab: {fileID: 5757039468991161957, guid: 60cea6d4aaa060d478109961db6c4151,
-      type: 3}
+  - unitBatches: {fileID: 11400000, guid: e864aca6d623d97409b128adc3ed30aa, type: 2}
     spawnTime: 15
-  - enemyPrefab: {fileID: 5757039468991161957, guid: 60cea6d4aaa060d478109961db6c4151,
-      type: 3}
+  - unitBatches: {fileID: 11400000, guid: e864aca6d623d97409b128adc3ed30aa, type: 2}
     spawnTime: 21
-  - enemyPrefab: {fileID: 5757039468991161957, guid: 60cea6d4aaa060d478109961db6c4151,
-      type: 3}
+  - unitBatches: {fileID: 11400000, guid: e864aca6d623d97409b128adc3ed30aa, type: 2}
     spawnTime: 27
-  - enemyPrefab: {fileID: 1223017446609634963, guid: 080850c336eb46b4dabb240b66f6e581,
-      type: 3}
+  - unitBatches: {fileID: 11400000, guid: 24d439a803da54e41b23c71046671679, type: 2}
     spawnTime: 40
-  - enemyPrefab: {fileID: 5757039468991161957, guid: 60cea6d4aaa060d478109961db6c4151,
-      type: 3}
-    spawnTime: 40
-  - enemyPrefab: {fileID: 1580982361717591071, guid: 3444028bd8ddcaa4796229b2afeccd1a,
-      type: 3}
+  - unitBatches: {fileID: 11400000, guid: b9f38a1262f3aaa4bb5d64ecf5676011, type: 2}
     spawnTime: 48
-  - enemyPrefab: {fileID: 5757039468991161957, guid: 60cea6d4aaa060d478109961db6c4151,
-      type: 3}
-    spawnTime: 48
-  - enemyPrefab: {fileID: 5757039468991161957, guid: 60cea6d4aaa060d478109961db6c4151,
-      type: 3}
+  - unitBatches: {fileID: 11400000, guid: b9f38a1262f3aaa4bb5d64ecf5676011, type: 2}
     spawnTime: 56
-  - enemyPrefab: {fileID: 5757039468991161957, guid: 60cea6d4aaa060d478109961db6c4151,
-      type: 3}
-    spawnTime: 56
-  - enemyPrefab: {fileID: 5757039468991161957, guid: 60cea6d4aaa060d478109961db6c4151,
-      type: 3}
+  - unitBatches: {fileID: 11400000, guid: b9f38a1262f3aaa4bb5d64ecf5676011, type: 2}
     spawnTime: 64
-  - enemyPrefab: {fileID: 5757039468991161957, guid: 60cea6d4aaa060d478109961db6c4151,
-      type: 3}
-    spawnTime: 64
-  - enemyPrefab: {fileID: 1223017446609634963, guid: 080850c336eb46b4dabb240b66f6e581,
-      type: 3}
+  - unitBatches: {fileID: 11400000, guid: b9f38a1262f3aaa4bb5d64ecf5676011, type: 2}
     spawnTime: 70
-  - enemyPrefab: {fileID: 5757039468991161957, guid: 60cea6d4aaa060d478109961db6c4151,
-      type: 3}
-    spawnTime: 70
-  - enemyPrefab: {fileID: 5757039468991161957, guid: 60cea6d4aaa060d478109961db6c4151,
-      type: 3}
+  - unitBatches: {fileID: 11400000, guid: b9f38a1262f3aaa4bb5d64ecf5676011, type: 2}
     spawnTime: 76
-  - enemyPrefab: {fileID: 5757039468991161957, guid: 60cea6d4aaa060d478109961db6c4151,
-      type: 3}
+  - unitBatches: {fileID: 11400000, guid: dd96a20413a01494b9dee2126116a5c1, type: 2}
     spawnTime: 76
-  - enemyPrefab: {fileID: 5757039468991161957, guid: 60cea6d4aaa060d478109961db6c4151,
-      type: 3}
-    spawnTime: 76
-  - enemyPrefab: {fileID: 1580982361717591071, guid: 3444028bd8ddcaa4796229b2afeccd1a,
-      type: 3}
+  - unitBatches: {fileID: 11400000, guid: b9f38a1262f3aaa4bb5d64ecf5676011, type: 2}
     spawnTime: 78
   distanceFromOrigin: 58
 --- !u!4 &832575519 stripped
@@ -6883,7 +6869,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c472bc6f2cdecc64fba648958e770bcb,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c472bc6f2cdecc64fba648958e770bcb,
         type: 3}
@@ -6893,7 +6879,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c472bc6f2cdecc64fba648958e770bcb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.5
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c472bc6f2cdecc64fba648958e770bcb,
         type: 3}
@@ -7378,6 +7364,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 723106731}
+    - targetCorrespondingSourceObject: {fileID: 3015661428472352285, guid: 437c12f0704ee414f9a16897911bbfba,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 723106738}
   m_SourcePrefab: {fileID: 100100000, guid: 437c12f0704ee414f9a16897911bbfba, type: 3}
 --- !u!1001 &6550397918700706961
 PrefabInstance:

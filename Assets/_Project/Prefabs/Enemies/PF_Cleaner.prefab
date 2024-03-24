@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1548c3e20af490948a90690123dea36c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveSO: {fileID: 11400000, guid: 50e0f5d76ccba264ba70370e71a6e054, type: 2}
+  unitBatchesSO: {fileID: 11400000, guid: 50e0f5d76ccba264ba70370e71a6e054, type: 2}
   spawnPoint: {fileID: 6595382507458107183}
   initialDelay: 5
   waveCooldown: 10

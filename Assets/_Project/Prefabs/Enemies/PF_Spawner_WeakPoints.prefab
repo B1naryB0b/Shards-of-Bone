@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boidManager: {fileID: 0}
-  waveSO: {fileID: 11400000, guid: d44bc8887f8e1604eaf89a59b48ab275, type: 2}
+  unitBatchesSO: {fileID: 11400000, guid: d44bc8887f8e1604eaf89a59b48ab275, type: 2}
   initialDelay: 3
   waveCooldown: 20
   spawnRadius: 3

@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 204d4caafef992240a2365feb7227ffe, type: 3}
-  m_Name: SO_BoidWave
+  m_Name: SO_DoubleSpawnerWave
   m_EditorClassIdentifier: 
-  waves:
-  - unit: {fileID: 473026841978952320, guid: 83198942ec7970c439929b2893d35e36, type: 3}
-    quantity: 10
-  - unit: {fileID: 499394204284675129, guid: 9f5f09846c54f4248a6c13a4e661d3f5, type: 3}
-    quantity: 1
+  units:
+  - unitObject: {fileID: 5757039468991161957, guid: 60cea6d4aaa060d478109961db6c4151,
+      type: 3}
+    quantity: 2

@@ -80,6 +80,7 @@ public class CPMPlayer : MonoBehaviour
     private float fps = 0.0f;
 
     private CharacterController _controller;
+    public CharacterController Controller => _controller;
 
     // Camera rotations
     private float rotX = 0.0f;
@@ -106,6 +107,13 @@ public class CPMPlayer : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
+        SetupCamera();
+
+        _controller = GetComponent<CharacterController>();
+    }
+
+    private void SetupCamera()
+    {
         if (playerView == null)
         {
             Camera mainCamera = Camera.main;
@@ -118,26 +126,12 @@ public class CPMPlayer : MonoBehaviour
             transform.position.x,
             transform.position.y + playerViewYOffset,
             transform.position.z);
-
-        _controller = GetComponent<CharacterController>();
     }
 
     private void Update()
     {
-        // Do FPS calculation
-        frameCount++;
-        dt += Time.deltaTime;
-        if (dt > 1.0 / fpsDisplayRate)
-        {
-            fps = Mathf.Round(frameCount / dt);
-            frameCount = 0;
-            dt -= 1.0f / fpsDisplayRate;
-                 }
-        /* Ensure that the cursor is locked into the screen */
-        if (Cursor.lockState != CursorLockMode.Locked) {
-            if (Input.GetButtonDown("Fire1"))
-                Cursor.lockState = CursorLockMode.Locked;
-        }
+        FPSCalculation();
+        LockCursor();
 
         /* Camera rotation stuff, mouse controls this shit */
         rotX -= Input.GetAxisRaw("Mouse Y") * xMouseSensitivity * 0.02f;
@@ -199,7 +193,28 @@ public class CPMPlayer : MonoBehaviour
             transform.position.z);
     }
 
-     /*******************************************************************************************************\
+    private void FPSCalculation()
+    {
+        frameCount++;
+        dt += Time.deltaTime;
+        if (dt > 1.0 / fpsDisplayRate)
+        {
+            fps = Mathf.Round(frameCount / dt);
+            frameCount = 0;
+            dt -= 1.0f / fpsDisplayRate;
+        }
+    }
+
+    private static void LockCursor()
+    {
+        if (Cursor.lockState != CursorLockMode.Locked) 
+        {
+            if (Input.GetButtonDown("Fire1"))
+                Cursor.lockState = CursorLockMode.Locked;
+        }
+    }
+
+    /*******************************************************************************************************\
     |* MOVEMENT
     \*******************************************************************************************************/
 

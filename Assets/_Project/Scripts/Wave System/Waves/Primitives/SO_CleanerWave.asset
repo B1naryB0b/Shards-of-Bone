@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 204d4caafef992240a2365feb7227ffe, type: 3}
-  m_Name: SO_LurkerWave
+  m_Name: SO_CleanerWave
   m_EditorClassIdentifier: 
-  waves:
-  - unit: {fileID: 5797964785415960953, guid: 0977964f4335438428e74133831d55c9, type: 3}
-    quantity: 2
+  units:
+  - unitObject: {fileID: 1223017446609634963, guid: 080850c336eb46b4dabb240b66f6e581,
+      type: 3}
+    quantity: 1

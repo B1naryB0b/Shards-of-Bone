@@ -10,8 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 204d4caafef992240a2365feb7227ffe, type: 3}
-  m_Name: SO_FastFloaterWave
+  m_Name: SO_CleanerSpawner
   m_EditorClassIdentifier: 
-  waves:
-  - unit: {fileID: 17579940596899213, guid: 4a3d3d0bdfa73e143a1a8cd2e7275482, type: 3}
-    quantity: 10
+  units:
+  - unitObject: {fileID: 1223017446609634963, guid: 080850c336eb46b4dabb240b66f6e581,
+      type: 3}
+    quantity: 1
+  - unitObject: {fileID: 5757039468991161957, guid: 60cea6d4aaa060d478109961db6c4151,
+      type: 3}
+    quantity: 1

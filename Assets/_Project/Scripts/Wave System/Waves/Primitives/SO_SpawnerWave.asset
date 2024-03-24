@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 204d4caafef992240a2365feb7227ffe, type: 3}
-  m_Name: SO_CrawlerWave
+  m_Name: SO_SpawnerWave
   m_EditorClassIdentifier: 
-  waves:
-  - unit: {fileID: 473026841978952320, guid: ea5cf8584f8c57f4dbd9adbea886d65e, type: 3}
-    quantity: 5
-  - unit: {fileID: 5147804706763200900, guid: 8e2d34a044912f442af37411cdf202cc, type: 3}
+  units:
+  - unitObject: {fileID: 5757039468991161957, guid: 60cea6d4aaa060d478109961db6c4151,
+      type: 3}
     quantity: 1

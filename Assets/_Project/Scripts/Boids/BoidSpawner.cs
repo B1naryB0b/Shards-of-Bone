@@ -7,7 +7,7 @@ public class BoidSpawner : MonoBehaviour {
     public BoidManager boidManager;
 
     [Header("Waves")]
-    [SerializeField] private WaveSO waveSO;
+    [SerializeField] private UnitBatchesSO unitBatchesSO;
     [SerializeField] private float initialDelay;
     [SerializeField] private float waveCooldown = 10f;
 
@@ -39,7 +39,7 @@ public class BoidSpawner : MonoBehaviour {
 
     private IEnumerator Co_SpawnWave()
     {
-        foreach (Wave wave in waveSO.waves)
+        foreach (Units wave in unitBatchesSO.units)
         {
             for (int i = 0; i < wave.quantity; i++)
             {
@@ -49,10 +49,10 @@ public class BoidSpawner : MonoBehaviour {
         }
     }
 
-    private void SpawnBoid(Wave wave)
+    private void SpawnBoid(Units units)
     {
         Vector3 pos = transform.position + Random.insideUnitSphere * spawnRadius;
-        GameObject boidObject = Instantiate(wave.unit, pos, Quaternion.identity);
+        GameObject boidObject = Instantiate(units.unitObject, pos, Quaternion.identity);
         Boid boid = boidObject.GetComponent<Boid>();
 
         if (boid != null)

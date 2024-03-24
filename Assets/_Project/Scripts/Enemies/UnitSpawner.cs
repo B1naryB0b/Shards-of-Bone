@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class UnitSpawner : MonoBehaviour
 {
-    [SerializeField] private WaveSO waveSO;
+    [SerializeField] private UnitBatchesSO unitBatchesSO;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private float initialDelay = 5f;
     [SerializeField] private float waveCooldown = 10f;
@@ -30,13 +30,13 @@ public class UnitSpawner : MonoBehaviour
 
     private IEnumerator Co_SpawnWave()
     {
-        foreach (Wave wave in waveSO.waves)
+        foreach (Units wave in unitBatchesSO.units)
         {
             for (int i = 0; i < wave.quantity; i++)
             {
                 Vector3 offsetPosition = Random.insideUnitSphere * spawnRadius + spawnPoint.position;
                 offsetPosition.y = spawnPoint.position.y;
-                SpawnUnit(wave.unit, offsetPosition);
+                SpawnUnit(wave.unitObject, offsetPosition);
                 yield return null; // Optional: to spread out instantiation over multiple frames
             }
         }
