@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="622fc66d-b1e0-4191-91c9-c54f14c5d710" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Shards-of-Bone/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Shards-of-Bone/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/CPMPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/CPMPlayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/Grapple.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/Grapple.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/ShotgunJump.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/ShotgunJump.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Materials/Enemies/M_AOE.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Materials/Enemies/M_AOE.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Materials/Shaders/SG_AOE.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Materials/Shaders/SG_AOE.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/Enemies/PF_Disabler.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Prefabs/Enemies/PF_Disabler.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scenes/SCN_Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scenes/SCN_Test.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -120,7 +119,7 @@
       <workItem from="1711148699400" duration="3552000" />
       <workItem from="1711203436791" duration="4880000" />
       <workItem from="1711231371188" duration="6548000" />
-      <workItem from="1711255406060" duration="4519000" />
+      <workItem from="1711255406060" duration="5192000" />
     </task>
     <servers />
   </component>
