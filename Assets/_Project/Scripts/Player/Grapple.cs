@@ -122,7 +122,7 @@ public class Grapple : MonoBehaviour
             float curveValue = grappleCurve.Evaluate(grappleTravelTime / maxGrappleTravelTime);
             Vector3 direction = (grapplePoint - grappleStartPoint).normalized;
             Vector3 grappleForce = direction * grappleStrength * curveValue;
-            cpmPlayer.AddExternalMovementForce(grappleForce * Time.deltaTime);
+            cpmPlayer.AddExternalVelocity((grappleForce + grappleForce.GetAxis(Axis.Y)) * Time.deltaTime);
         }
         else
         {

@@ -52,6 +52,9 @@ public class CPMPlayer : MonoBehaviour
     [Header ("Physics")]
     /*Frame occuring factors*/
     public float gravity = 20.0f;
+    public float bonusGravityStrength = 20.0f;
+    
+    [SerializeField] private float bonusGravityTime;
 
     public float friction = 6; //Ground friction
 
@@ -101,8 +104,15 @@ public class CPMPlayer : MonoBehaviour
     
     [SerializeField] private AudioClip bHopSFX;
 
+    private float appliedGravity;
+    private ShotgunJump shotgunJump;
+    private float airTime;
+
+    
     private void Start()
     {
+        airTime = 0f;
+        appliedGravity = gravity;
         // Hide the cursor
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
@@ -110,6 +120,7 @@ public class CPMPlayer : MonoBehaviour
         SetupCamera();
 
         _controller = GetComponent<CharacterController>();
+        shotgunJump = GetComponent<ShotgunJump>();
     }
 
     private void SetupCamera()
@@ -130,6 +141,18 @@ public class CPMPlayer : MonoBehaviour
 
     private void Update()
     {
+        if (!_controller.isGrounded)
+        {
+            airTime += Time.deltaTime;
+        }
+        else
+        {
+            airTime = 0f;
+        }
+        
+        //int applied = !Input.GetKey(KeyCode.Space) && shotgunJump.isShotgunJumping ? 1 : 0;
+        gravity = appliedGravity + Mathf.Lerp(0, bonusGravityStrength, airTime/bonusGravityTime);
+        
         FPSCalculation();
         LockCursor();
 
@@ -419,10 +442,9 @@ public class CPMPlayer : MonoBehaviour
         playerVelocity.z += accelspeed * wishdir.z;
     }
 
-    public void AddExternalMovementForce(Vector3 force)
+    public void AddExternalVelocity(Vector3 velocity)
     {
-        playerVelocity += force;
-        playerVelocity.y += force.y;
+        playerVelocity += velocity;
     }
 
 

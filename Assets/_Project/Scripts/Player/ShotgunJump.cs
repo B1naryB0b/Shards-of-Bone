@@ -13,6 +13,7 @@ public class ShotgunJump : MonoBehaviour
     private Camera _mainCamera;
     
     private bool _canShotgunJump;
+    public bool isShotgunJumping;
     private float _timeSinceGrounded;
 
     private void Start()
@@ -30,6 +31,7 @@ public class ShotgunJump : MonoBehaviour
         if (_cpmPlayer.Controller.isGrounded)
         {
             _canShotgunJump = true;
+            isShotgunJumping = false;
             _timeSinceGrounded = 0f;
         }
         else
@@ -43,9 +45,10 @@ public class ShotgunJump : MonoBehaviour
         {
             Debug.Log("Shotgun jump");
             AudioController.Instance.PlaySound(shotgunJumpSFX);
-            _cpmPlayer.AddExternalMovementForce(-_mainCamera.transform.forward * force);
+            _cpmPlayer.AddExternalVelocity((-_mainCamera.transform.forward * force) + (_cpmPlayer.Controller.velocity.normalized * force * 0.1f));
             _shootBones.isShotgunFired = false;
             _canShotgunJump = false;
+            isShotgunJumping = true;
         }
     }
 
