@@ -27,6 +27,6 @@ MonoBehaviour:
   boundsRadius: 1
   avoidCollisionWeight: 30
   collisionAvoidDst: 5
-  gravity: -30
+  gravity: -5
   buoyancyThreshold: 5
-  buoyancyStrength: 32
+  buoyancyStrength: 6

@@ -9,17 +9,20 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private float flashDuration;
 
     [SerializeField] private Color hitColor;
-    private Color originalColor;
+    private Color _originalColor;
 
     [SerializeField] private GameObject enemyObject;
 
-    private Renderer enemyRenderer;
+    private Renderer _enemyRenderer;
+    private Collider _collider;
 
     private void Start()
     {
-        enemyRenderer = gameObject.GetComponent<Renderer>();
-        enemyRenderer.material.EnableKeyword("_EmissiveColor");
-        originalColor = enemyRenderer.material.GetColor("_EmissiveColor");
+        _enemyRenderer = GetComponent<Renderer>();
+        _enemyRenderer.material.EnableKeyword("_EmissiveColor");
+        _originalColor = _enemyRenderer.material.GetColor("_EmissiveColor");
+
+        _collider = GetComponent<Collider>();
     }
 
     private void Flash(float duration)
@@ -29,13 +32,13 @@ public class EnemyHealth : MonoBehaviour
 
     private IEnumerator Co_Flash(float duration)
     {
-        if (enemyRenderer == null) yield break;
+        if (_enemyRenderer == null) yield break;
 
-        enemyRenderer.material.SetColor("_EmissiveColor", hitColor);
+        _enemyRenderer.material.SetColor("_EmissiveColor", hitColor);
 
         yield return new WaitForSeconds(duration);
 
-        enemyRenderer.material.SetColor("_EmissiveColor", originalColor);
+        _enemyRenderer.material.SetColor("_EmissiveColor", _originalColor);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -60,12 +63,20 @@ public class EnemyHealth : MonoBehaviour
 
             if (enemyObject != null)
             {
-                Destroy(enemyObject);
+                StartCoroutine(Co_Die());
             }
             else
             {
                 Debug.LogError("No enemyObject assigned to EnemyHealth.cs");
             }
         }
+    }
+
+    private IEnumerator Co_Die()
+    {
+        _collider.enabled = false;
+        yield return new WaitForSeconds(flashDuration);
+        _enemyRenderer.material.SetColor("_EmissiveColor", hitColor);
+        Destroy(enemyObject);
     }
 }

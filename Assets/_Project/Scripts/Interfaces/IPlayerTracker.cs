@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface IPlayerTracker
 {
-    void SetPlayerTransform(Transform playerTransform);
+    public void SetPlayerTransform(Transform playerTransform);
 }
 

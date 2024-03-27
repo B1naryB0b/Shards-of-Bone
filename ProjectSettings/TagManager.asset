@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - Splinter
   - Wall
+  - Disabler
   layers:
   - Default
   - TransparentFX

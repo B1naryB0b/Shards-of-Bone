@@ -5,10 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="622fc66d-b1e0-4191-91c9-c54f14c5d710" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Materials/Enemies/M_AOE.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Materials/Enemies/M_AOE.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Materials/Shaders/SG_AOE.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Materials/Shaders/SG_AOE.shadergraph" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Shards-of-Bone/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Shards-of-Bone/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Materials/Enemies/MV_Enemy_Crawler.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Materials/Enemies/MV_Enemy_Crawler.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Materials/Enemies/MV_Enemy_Floater.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Materials/Enemies/MV_Enemy_Floater.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Materials/Enemies/MV_Enemy_Lurker.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Materials/Enemies/MV_Enemy_Lurker.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Materials/Enemies/M_Enemy Disabler.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Materials/Enemies/M_Enemy Disabler.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Materials/Enemies/M_Enemy_Cleaner.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Materials/Enemies/M_Enemy_Cleaner.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Materials/Enemies/M_Enemy_Spawner.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Materials/Enemies/M_Enemy_Spawner.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/Enemies/PF_Disabler.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Prefabs/Enemies/PF_Disabler.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Boids/SO_BoidSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Boids/SO_BoidSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Enemies/EnemyHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Enemies/EnemyHealth.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Interfaces/IPlayerTracker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Interfaces/IPlayerTracker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/CPMPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Player/CPMPlayer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scenes/SCN_Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scenes/SCN_Test.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +30,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/Interfaces/IPlayerTracker.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/Player/Slowed.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/Vector3Extensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/VideoSettings.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -59,7 +70,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/Builds/Version [0.0.7]\Shards-of-Bone.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/Builds/Version [0.0.8]\Shards-of-Bone.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="C:\Users\cuney\Documents\GitHub\Shards-of-Bone\Builds\Version [0.0.6]" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -119,7 +130,7 @@
       <workItem from="1711148699400" duration="3552000" />
       <workItem from="1711203436791" duration="4880000" />
       <workItem from="1711231371188" duration="6548000" />
-      <workItem from="1711255406060" duration="5192000" />
+      <workItem from="1711255406060" duration="16061000" />
     </task>
     <servers />
   </component>

@@ -397,49 +397,44 @@ public class CPMPlayer : MonoBehaviour
     private void ApplyFriction(float t)
     {
         Vector3 vec = playerVelocity; // Equivalent to: VectorCopy();
-        float speed;
-        float newspeed;
-        float control;
-        float drop;
 
         vec.y = 0.0f;
-        speed = vec.magnitude;
-        drop = 0.0f;
+        float speed = vec.magnitude;
+        float drop = 0.0f;
 
         /* Only if the player is on the ground then apply friction */
         if(_controller.isGrounded)
         {
-            control = speed < runDeacceleration ? runDeacceleration : speed;
+            float control = speed < runDeacceleration ? runDeacceleration : speed;
             drop = control * friction * Time.deltaTime * t;
         }
 
-        newspeed = speed - drop;
-        playerFriction = newspeed;
-        if(newspeed < 0)
-            newspeed = 0;
+        float newSpeed = speed - drop;
+        playerFriction = newSpeed;
+        if(newSpeed < 0)
+            newSpeed = 0;
         if(speed > 0)
-            newspeed /= speed;
+            newSpeed /= speed;
 
-        playerVelocity.x *= newspeed;
-        playerVelocity.z *= newspeed;
+        playerVelocity.x *= newSpeed;
+        playerVelocity.z *= newSpeed;
     }
 
-    private void Accelerate(Vector3 wishdir, float wishspeed, float accel)
+    private void Accelerate(Vector3 wishDir, float wishSpeed, float accel)
     {
-        float addspeed;
-        float accelspeed;
-        float currentspeed;
-
-        currentspeed = Vector3.Dot(playerVelocity, wishdir);
-        addspeed = wishspeed - currentspeed;
-        if(addspeed <= 0)
+        float currentSpeed = Vector3.Dot(playerVelocity, wishDir);
+        float addSpeed = wishSpeed - currentSpeed;
+        
+        if(addSpeed <= 0)
             return;
-        accelspeed = accel * Time.deltaTime * wishspeed;
-        if(accelspeed > addspeed)
-            accelspeed = addspeed;
+        
+        float accelSpeed = accel * Time.deltaTime * wishSpeed;
+        
+        if(accelSpeed > addSpeed)
+            accelSpeed = addSpeed;
 
-        playerVelocity.x += accelspeed * wishdir.x;
-        playerVelocity.z += accelspeed * wishdir.z;
+        playerVelocity.x += accelSpeed * wishDir.x;
+        playerVelocity.z += accelSpeed * wishDir.z;
     }
 
     public void AddExternalVelocity(Vector3 velocity)
@@ -447,6 +442,10 @@ public class CPMPlayer : MonoBehaviour
         playerVelocity += velocity;
     }
 
+    public void SetVelocity(Vector3 velocity)
+    {
+        playerVelocity = velocity;
+    }
 
     private void OnGUI()
     {
