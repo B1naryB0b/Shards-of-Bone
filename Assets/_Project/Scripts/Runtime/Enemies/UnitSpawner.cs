@@ -45,10 +45,10 @@ public class UnitSpawner : MonoBehaviour
     private void SpawnUnit(GameObject unit, Vector3 position)
     {
         GameObject enemy = Instantiate(unit, position, spawnPoint.rotation);
-        IPlayerTracker playerTracker = enemy.GetComponent<IPlayerTracker>();
-        if (playerTracker != null)
+        IPlayerTracker spawnable = enemy.GetComponent<IPlayerTracker>();
+        if (spawnable != null)
         {
-            playerTracker.SetPlayerTransform(_playerTransform);
+            spawnable.SetPlayerTransform(_playerTransform);
         }
     }
 

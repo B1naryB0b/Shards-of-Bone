@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SimpleFollow : MonoBehaviour
+public class SimpleFollow : MonoBehaviour, ISpawnable
 {
     private enum FollowType
     {
@@ -44,5 +44,10 @@ public class SimpleFollow : MonoBehaviour
         if (lerpPosition) { gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, target.position, Time.deltaTime * smoothFollowSpeed); }
 
         if (lerpRotation) { gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, target.rotation, Time.deltaTime * smoothFollowSpeed); }
+    }
+
+    public void OnSpawn(Transform spawnerTarget, BoidManager boidManager)
+    {
+        target = spawnerTarget;
     }
 }

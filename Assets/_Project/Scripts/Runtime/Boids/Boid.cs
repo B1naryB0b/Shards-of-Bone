@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boid : MonoBehaviour {
+public class Boid : MonoBehaviour, ISpawnable 
+{
 
     private BoidSettings settings;
 
@@ -128,6 +129,11 @@ public class Boid : MonoBehaviour {
     Vector3 SteerTowards (Vector3 vector) {
         Vector3 v = vector.normalized * settings.maxSpeed - velocity;
         return Vector3.ClampMagnitude (v, settings.maxSteerForce);
+    }
+
+    public void OnSpawn(Transform spawnerTarget, BoidManager boidManager)
+    {
+        boidManager.AddBoid(this);
     }
 
 }

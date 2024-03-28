@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoidSpawner : MonoBehaviour {
+public class BoidSpawner : MonoBehaviour, ISpawnable
+{
 
     public BoidManager boidManager;
 
@@ -85,4 +86,8 @@ public class BoidSpawner : MonoBehaviour {
         Gizmos.DrawSphere (transform.position, spawnRadius);
     }
 
+    public void OnSpawn(Transform spawnerTarget, BoidManager globalBoidManager)
+    {
+        boidManager = globalBoidManager;
+    }
 }

@@ -47,25 +47,11 @@ public class WaveManager : MonoBehaviour
 
                 GameObject enemy = Instantiate(unit.unitObject, spawnPosition, Quaternion.identity);
 
-                var simpleFollow = enemy.GetComponent<SimpleFollow>();
-                
-                if (simpleFollow != null)
-                {
-                    simpleFollow.target = spawnerTarget;
-                }
+                ISpawnable[] spawnables = enemy.GetComponentsInChildren<ISpawnable>();
 
-                var boidSpawner = enemy.GetComponentInChildren<BoidSpawner>();
-                
-                if (boidSpawner != null)
+                foreach (ISpawnable spawnable in spawnables)
                 {
-                    boidSpawner.boidManager = boidManager;
-                }
-
-                var boid = enemy.GetComponent<Boid>();
-
-                if (boid != null)
-                {
-                    boidManager.AddBoid(boid);
+                    spawnable.OnSpawn(spawnerTarget, boidManager);
                 }
             }
         }
