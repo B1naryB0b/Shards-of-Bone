@@ -3,26 +3,30 @@ using UnityEngine;
 public class Grapple : MonoBehaviour
 {
     private Camera _playerCamera;
+    private CPMPlayer _cpmPlayer;
+    
     private Vector3 _grapplePoint;
     private Vector3 _grappleStartPoint;
     private bool _isGrappling;
-    private LineRenderer _lineRenderer;
-    private CPMPlayer _cpmPlayer;
     private float _grappleTravelTime;
     private float _grappleCooldownTime;
+    private bool _isCoyoteTimeActive;
+    
+    private LineRenderer _lineRenderer;
 
-    [SerializeField] private Transform grappleLineStart;
-    [SerializeField] private float maxGrappleDistance = 100f;
+    [Header("Grapple Settings")]
     [SerializeField] private LayerMask grappleLayerMask;
-    [SerializeField] private AnimationCurve grappleCurve;
+    [SerializeField] private float maxGrappleDistance = 100f;
     [SerializeField] private float grappleStrength;
     [SerializeField] private float maxGrappleTravelTime;
     [SerializeField] private float grappleCooldown;
+    [SerializeField] private float coyoteTimeWindow = 0.2f;
+    [SerializeField] private AnimationCurve grappleCurve;
+
+    [Header("Visual Settings")]
+    [SerializeField] private Transform grappleLineStart;
     [SerializeField] private RectTransform grappleIconRect;
     [SerializeField] private AnimationCurve grappleIconCurve;
-    [SerializeField] private float coyoteTimeWindow = 0.2f;
-    private bool _isCoyoteTimeActive;
-
 
     void Start()
     {
@@ -85,19 +89,21 @@ public class Grapple : MonoBehaviour
 
     private void ShootGrapple()
     {
-        Ray ray = new Ray(_playerCamera.transform.position, _playerCamera.transform.forward);
-        if (Physics.Raycast(ray, out RaycastHit hit, maxGrappleDistance, grappleLayerMask))
+        Transform playerCameraTransform = _playerCamera.transform;
+        Ray ray = new Ray(playerCameraTransform.position, playerCameraTransform.forward);
+        
+        if (!Physics.Raycast(ray, out RaycastHit hit, maxGrappleDistance, grappleLayerMask)) return;
+        
+        _grapplePoint = hit.point;
+        _grappleStartPoint = transform.position;
+        _isGrappling = true;
+        _grappleTravelTime = 0f;
+        _grappleCooldownTime = 0f;
+        
+        if (_lineRenderer != null)
         {
-            _grapplePoint = hit.point;
-            _grappleStartPoint = transform.position;
-            _isGrappling = true;
-            _grappleTravelTime = 0f;
-            _grappleCooldownTime = 0f;
-            if (_lineRenderer != null)
-            {
-                _lineRenderer.enabled = true;
-                _lineRenderer.positionCount = 2;
-            }
+            _lineRenderer.enabled = true;
+            _lineRenderer.positionCount = 2;
         }
     }
 
