@@ -42,6 +42,18 @@ public class Grapple : MonoBehaviour
 
     void Update()
     {
+        GrappleCooldown();
+        HandleInput();
+
+        if (_isGrappling)
+        {
+            GrappleMovement();
+            DrawGrappleLine();
+        }
+    }
+
+    private void GrappleCooldown()
+    {
         if (_grappleCooldownTime < grappleCooldown)
         {
             _grappleCooldownTime += Time.deltaTime;
@@ -54,6 +66,15 @@ public class Grapple : MonoBehaviour
             _isCoyoteTimeActive = true;
         }
 
+        // Reset coyote time after cooldown is complete
+        if (_grappleCooldownTime >= grappleCooldown)
+        {
+            _isCoyoteTimeActive = false;
+        }
+    }
+
+    private void HandleInput()
+    {
         if (Input.GetButtonDown("Fire2") && (_grappleCooldownTime >= grappleCooldown || _isCoyoteTimeActive))
         {
             ShootGrapple();
@@ -63,18 +84,6 @@ public class Grapple : MonoBehaviour
         if (Input.GetButtonUp("Fire2"))
         {
             StopGrapple();
-        }
-
-        if (_isGrappling)
-        {
-            GrappleMovement();
-            DrawGrappleLine();
-        }
-
-        // Reset coyote time after cooldown is complete
-        if (_grappleCooldownTime >= grappleCooldown)
-        {
-            _isCoyoteTimeActive = false;
         }
     }
 
@@ -125,7 +134,7 @@ public class Grapple : MonoBehaviour
         {
             float curveValue = grappleCurve.Evaluate(_grappleTravelTime / maxGrappleTravelTime);
             Vector3 direction = (_grapplePoint - _grappleStartPoint).normalized;
-            Vector3 grappleForce = direction * grappleStrength * curveValue;
+            Vector3 grappleForce = direction * (grappleStrength * curveValue);
             _cpmPlayer.AddExternalVelocity((grappleForce + grappleForce.GetAxis(Axis.Y)) * Time.deltaTime);
         }
         else
