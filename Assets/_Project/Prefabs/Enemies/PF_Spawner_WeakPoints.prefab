@@ -52,7 +52,7 @@ MonoBehaviour:
   colour: {r: 0.119992495, g: 1, b: 0, a: 0.09803922}
   showSpawnRegion: 2
   randomSpawn: 0
-  startDirection: {x: 0, y: 1, z: 1}
+  startDirection: {x: 0, y: 1, z: 0}
 --- !u!1 &4230947752896847734
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,7 +261,7 @@ MonoBehaviour:
   target: {fileID: 0}
   lerpPosition: 1
   lerpRotation: 0
-  smoothFollowSpeed: 0.1
+  smoothFollowSpeed: 0.03
 --- !u!82 &4182413265345184996
 AudioSource:
   m_ObjectHideFlags: 0
