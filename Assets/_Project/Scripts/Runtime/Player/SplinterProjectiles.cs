@@ -9,6 +9,8 @@ public class SplinterProjectiles : MonoBehaviour
 
     [SerializeField] private float scatterAngle;
 
+    [SerializeField] private AudioClip splinterSound;
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
@@ -25,7 +27,7 @@ public class SplinterProjectiles : MonoBehaviour
                 Vector3 variedDirection = variedRotation * Vector3.forward;
                 rb.velocity = variedDirection * speed;
             }
-
+            AudioController.Instance.PlaySound(splinterSound, 0.05f);
             Destroy(gameObject);
         }
     }

@@ -255,6 +255,7 @@ MonoBehaviour:
     type: 3}
   splintersPerBullet: 2
   scatterAngle: 20
+  splinterSound: {fileID: 8300000, guid: 22df30b40b3294f4aba0f4e9d54438bb, type: 3}
 --- !u!96 &-3394952971628654832
 TrailRenderer:
   serializedVersion: 3

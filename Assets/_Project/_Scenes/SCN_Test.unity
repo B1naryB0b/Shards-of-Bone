@@ -7347,6 +7347,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5402766187829922867, guid: 437c12f0704ee414f9a16897911bbfba,
         type: 3}
+      propertyPath: shotgunScatterAngleMultiplier
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5402766187829922867, guid: 437c12f0704ee414f9a16897911bbfba,
+        type: 3}
       propertyPath: movementAngleCompensationStrength
       value: 0.01
       objectReference: {fileID: 0}
