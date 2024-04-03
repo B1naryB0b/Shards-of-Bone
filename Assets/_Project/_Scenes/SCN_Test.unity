@@ -249,6 +249,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slowStrength: 2
+--- !u!114 &24815435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16679017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eb644751d546d44cb556aaa19b1df27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fovs:
+  - speedThreshold: 18
+    fovScaler: 1.15
+  - speedThreshold: 22
+    fovScaler: 1.2
+  - speedThreshold: 24
+    fovScaler: 1.23
+  - speedThreshold: 28
+    fovScaler: 1.25
+  - speedThreshold: 32
+    fovScaler: 1.26
+  lerpSpeed: 3
 --- !u!1 &114762488
 GameObject:
   m_ObjectHideFlags: 0
@@ -7231,6 +7255,11 @@ PrefabInstance:
       propertyPath: terminalVelocity
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 2873695194412990976, guid: 437c12f0704ee414f9a16897911bbfba,
+        type: 3}
+      propertyPath: field of view
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 3015661428472352285, guid: 437c12f0704ee414f9a16897911bbfba,
         type: 3}
       propertyPath: m_Name
@@ -7369,6 +7398,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 24815424}
+    - targetCorrespondingSourceObject: {fileID: 3015661428472352285, guid: 437c12f0704ee414f9a16897911bbfba,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 24815435}
   m_SourcePrefab: {fileID: 100100000, guid: 437c12f0704ee414f9a16897911bbfba, type: 3}
 --- !u!1001 &6550397918700706961
 PrefabInstance:
