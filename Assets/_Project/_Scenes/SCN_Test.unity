@@ -678,7 +678,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &994401879
 Transform:
   m_ObjectHideFlags: 0
@@ -803,7 +803,7 @@ MonoBehaviour:
   m_ShadowVariant: 0
   m_ShadowPrecision: 0
   useOldInspector: 0
-  useVolumetric: 1
+  useVolumetric: 0
   featuresFoldout: 1
   m_AreaLightEmissiveMeshShadowCastingMode: 0
   m_AreaLightEmissiveMeshMotionVectorGenerationMode: 0
@@ -1037,8 +1037,8 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 10500.383
-  m_Range: 100
+  m_Intensity: 12052.205
+  m_Range: 120
   m_SpotAngle: 123.7
   m_InnerSpotAngle: 46.1
   m_CookieSize: 10
@@ -1099,7 +1099,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 34849.664
+  m_Intensity: 40000
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 81.92763
@@ -1196,7 +1196,7 @@ MonoBehaviour:
   m_ShadowVariant: 0
   m_ShadowPrecision: 0
   useOldInspector: 0
-  useVolumetric: 1
+  useVolumetric: 0
   featuresFoldout: 1
   m_AreaLightEmissiveMeshShadowCastingMode: 0
   m_AreaLightEmissiveMeshMotionVectorGenerationMode: 0

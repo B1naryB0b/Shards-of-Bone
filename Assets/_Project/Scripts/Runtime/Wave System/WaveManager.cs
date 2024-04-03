@@ -34,9 +34,7 @@ public class WaveManager : MonoBehaviour
 
     private void SpawnWave()
     {
-        Debug.Log(waves[currentWave].UnitBatches.units);
         List<Units> units = waves[currentWave].UnitBatches.units;
-        
 
         foreach (Units unit in units)
         {

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class BoidManager : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class BoidManager : MonoBehaviour
     public BoidSettings settings;
     public ComputeShader compute;
     public Transform target;
-
+     
     private List<Boid> boids = new List<Boid>();
 
     public void AddBoid(Boid boid)
@@ -26,10 +27,12 @@ public class BoidManager : MonoBehaviour
 
     void Update()
     {
+        
         if (boids.Count > 0)
         {
             int numBoids = boids.Count;
             var boidData = new BoidData[numBoids];
+            Debug.Log(numBoids);
 
             for (int i = 0; i < numBoids; i++)
             {

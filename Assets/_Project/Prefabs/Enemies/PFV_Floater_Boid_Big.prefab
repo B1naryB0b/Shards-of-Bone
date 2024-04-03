@@ -8,10 +8,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -168695638937736249, guid: 83198942ec7970c439929b2893d35e36,
+        type: 3}
+      propertyPath: m_Mass
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 473026841978952320, guid: 83198942ec7970c439929b2893d35e36,
         type: 3}
       propertyPath: m_Name
       value: PFV_Floater_Boid_Big
+      objectReference: {fileID: 0}
+    - target: {fileID: 1938625241998086369, guid: 83198942ec7970c439929b2893d35e36,
+        type: 3}
+      propertyPath: m_Mass
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3518468716471030904, guid: 83198942ec7970c439929b2893d35e36,
         type: 3}
@@ -31,17 +41,17 @@ PrefabInstance:
     - target: {fileID: 5777968359766161639, guid: 83198942ec7970c439929b2893d35e36,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5777968359766161639, guid: 83198942ec7970c439929b2893d35e36,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5777968359766161639, guid: 83198942ec7970c439929b2893d35e36,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5777968359766161639, guid: 83198942ec7970c439929b2893d35e36,
         type: 3}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SO_BoidSettings
   m_EditorClassIdentifier: 
   minSpeed: 12
-  maxSpeed: 19
+  maxSpeed: 22
   perceptionRadius: 5
   avoidanceRadius: 4
   maxSteerForce: 1.6
@@ -29,4 +29,4 @@ MonoBehaviour:
   collisionAvoidDst: 5
   gravity: -5
   buoyancyThreshold: 5
-  buoyancyStrength: 8
+  buoyancyStrength: 15
