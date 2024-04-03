@@ -59,7 +59,8 @@ public class CPMPlayer : MonoBehaviour
     public float friction = 6; //Ground friction
 
     /* Movement stuff */
-    [Header ("Movement")]
+    [Header("Movement")] 
+    public float terminalVelocity = 40.0f;
     public float moveSpeed = 7.0f;                // Ground move speed
     public float runAcceleration = 14.0f;         // Ground accel
     public float runDeacceleration = 10.0f;       // Deacceleration that occurs when running on the ground
@@ -91,6 +92,10 @@ public class CPMPlayer : MonoBehaviour
 
     private Vector3 moveDirectionNorm = Vector3.zero;
     private Vector3 playerVelocity = Vector3.zero;
+    public Vector3 PlayerVelocity
+    {
+        get { return playerVelocity; }
+    }
     private float playerTopVelocity = 0.0f;
 
     // Q3: players can queue the next jump just before he hits the ground
@@ -141,6 +146,11 @@ public class CPMPlayer : MonoBehaviour
 
     private void Update()
     {
+        if (playerVelocity.sqrMagnitude > (terminalVelocity * terminalVelocity))
+        {
+            playerVelocity = playerVelocity.normalized * terminalVelocity;
+        }
+        
         if (!_controller.isGrounded)
         {
             airTime += Time.deltaTime;

@@ -7226,6 +7226,11 @@ PrefabInstance:
       propertyPath: friction
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 1907224051198770843, guid: 437c12f0704ee414f9a16897911bbfba,
+        type: 3}
+      propertyPath: terminalVelocity
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 3015661428472352285, guid: 437c12f0704ee414f9a16897911bbfba,
         type: 3}
       propertyPath: m_Name
