@@ -6,22 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="622fc66d-b1e0-4191-91c9-c54f14c5d710" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Shards-of-Bone/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Shards-of-Bone/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Materials/Enemies/MV_Enemy_Floater.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Materials/Enemies/MV_Enemy_Floater.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Materials/Enemies/M_Enemy Disabler.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Materials/Enemies/M_Enemy Disabler.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Materials/Enemies/M_Enemy.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Materials/Enemies/M_Enemy.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Materials/Enemies/M_Enemy_Cleaner.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Materials/Enemies/M_Enemy_Cleaner.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Materials/Enemies/M_Enemy_Drone.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Materials/Enemies/M_Enemy_Drone.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/Enemies/PFV_Floater_Boid_Big.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Prefabs/Enemies/PFV_Floater_Boid_Big.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/Enemies/PF_Floater_Boid.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Prefabs/Enemies/PF_Floater_Boid.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/Enemies/PF_Drone.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Prefabs/Enemies/PF_Drone.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/Projectiles/PFV_Boneshard_Splinter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Prefabs/Projectiles/PFV_Boneshard_Splinter.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/Projectiles/PF_Boneshard_Bullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Prefabs/Projectiles/PF_Boneshard_Bullet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Runtime/Boids/BoidManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Runtime/Boids/BoidManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Runtime/Boids/SO_BoidSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Runtime/Boids/SO_BoidSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Runtime/Wave System/WaveManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Runtime/Wave System/WaveManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Settings/SkyandFogSettingsProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Settings/SkyandFogSettingsProfile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Runtime/Wave System/Waves/SO_DroneWave.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Runtime/Wave System/Waves/SO_DroneWave.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scenes/SCN_Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scenes/SCN_Test.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +128,7 @@
       <workItem from="1711835226032" duration="795000" />
       <workItem from="1712081322076" duration="2822000" />
       <workItem from="1712103624249" duration="22000" />
-      <workItem from="1712103658579" duration="3278000" />
+      <workItem from="1712103658579" duration="3966000" />
     </task>
     <servers />
   </component>

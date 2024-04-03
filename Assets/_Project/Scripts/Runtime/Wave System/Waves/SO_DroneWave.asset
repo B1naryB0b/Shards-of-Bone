@@ -15,4 +15,4 @@ MonoBehaviour:
   units:
   - unitObject: {fileID: 473026841978952320, guid: ea5cf8584f8c57f4dbd9adbea886d65e,
       type: 3}
-    quantity: 5
+    quantity: 1

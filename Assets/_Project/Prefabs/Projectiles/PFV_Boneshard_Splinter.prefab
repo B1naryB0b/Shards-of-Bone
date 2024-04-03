@@ -40,6 +40,11 @@ PrefabInstance:
       objectReference: {fileID: 7512420052385799317}
     - target: {fileID: 290004001469852043, guid: c9894510cd7ce5a41a95f4a8b9f2d325,
         type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 290004001469852043, guid: c9894510cd7ce5a41a95f4a8b9f2d325,
+        type: 3}
       propertyPath: m_Interpolate
       value: 1
       objectReference: {fileID: 0}
