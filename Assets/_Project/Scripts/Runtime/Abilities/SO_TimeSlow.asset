@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eda4038d8a801a740948e23c8438256a, type: 3}
   m_Name: SO_TimeSlow
   m_EditorClassIdentifier: 
-  isUnlocked: 0
-  timeScale: 0.3
+  isUnlocked: 1
+  timeScale: 0.5
+  timeSlowVolumeProfile: {fileID: 11400000, guid: fff27b8c19d339849932fe1f9e51dfbc,
+    type: 2}
+  defaultVolumeProfile: {fileID: 11400000, guid: 8ba92e2dd7f884a0f88b98fa2d235fe7,
+    type: 2}

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
@@ -18,10 +19,17 @@ public class AbilityManager : MonoBehaviour
 
     private float _currentEnergy;
     private bool _abilityActive;
+    
+    [SerializeField] private VolumeProfile defaultVolumeProfile;
+    [SerializeField] private VolumeProfile abilityActiveVolumeProfile;
+    
+    private Volume _currentVolume;
 
     private void Start()
     {
-        _currentEnergy = 0f;
+        _currentVolume = FindObjectOfType<Volume>();
+        
+        _currentEnergy = maxEnergy;
         slider.value = _currentEnergy;
         slider.maxValue = maxEnergy;
 
@@ -34,7 +42,13 @@ public class AbilityManager : MonoBehaviour
     private void Update()
     {
         HandleInputs();
+        CalculateEnergy();
         
+        _currentVolume.profile = _abilityActive ? abilityActiveVolumeProfile : defaultVolumeProfile;
+    }
+
+    private void CalculateEnergy()
+    {
         if (_abilityActive && (_currentEnergy > 0f))
         {
             _currentEnergy -= energySpend * Time.unscaledDeltaTime;
@@ -44,24 +58,20 @@ public class AbilityManager : MonoBehaviour
             _abilityActive = false;
             TriggerAbilityEvents(ability => ability.Deactivate());
             
-            if (Input.GetButtonDown("Fire1"))
-            {
-                _currentEnergy -= shootEnergyCost;
-            }
+            //This is to prevent the player gaining energy when they shotgun fire
+            if (Input.GetButtonDown("Fire1")) _currentEnergy -= shootEnergyCost;
             
-            if (!Input.GetButton("Fire1"))
-            {
-                _currentEnergy += energyRegen * Time.unscaledDeltaTime;
-            }
+            if (!Input.GetButton("Fire1")) _currentEnergy += energyRegen * Time.unscaledDeltaTime;
         }
-
+        
+        
         _currentEnergy = Mathf.Clamp(_currentEnergy, 0f, maxEnergy);
         slider.value = _currentEnergy;
     }
 
     private void HandleInputs()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && Math.Abs(_currentEnergy - maxEnergy) < 0.1f)
         {
             _abilityActive = !_abilityActive;
             Action<AbilitySO> action = _abilityActive ? (ability => ability.Activate()) : (ability => ability.Deactivate());
@@ -76,7 +86,4 @@ public class AbilityManager : MonoBehaviour
             if (ability.isUnlocked) abilityAction(ability);
         }
     }
-    
-    
-
 }

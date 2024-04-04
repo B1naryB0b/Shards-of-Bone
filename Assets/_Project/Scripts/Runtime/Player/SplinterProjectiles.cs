@@ -8,9 +8,7 @@ public class SplinterProjectiles : MonoBehaviour
     [SerializeField] private int splintersPerBullet;
 
     [SerializeField] private float scatterAngle;
-
-    [SerializeField] private AudioClip splinterSound;
-
+    
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
@@ -27,7 +25,6 @@ public class SplinterProjectiles : MonoBehaviour
                 Vector3 variedDirection = variedRotation * Vector3.forward;
                 rb.velocity = variedDirection * speed;
             }
-            AudioController.Instance.PlaySound(splinterSound, 0.05f);
             Destroy(gameObject);
         }
     }
@@ -35,8 +32,8 @@ public class SplinterProjectiles : MonoBehaviour
     private Quaternion AddVarianceToRotation(Quaternion originalRotation, float variance)
     {
         Vector3 euler = originalRotation.eulerAngles;
-        euler.x += UnityEngine.Random.Range(-variance, variance);
-        euler.y += UnityEngine.Random.Range(-variance, variance);
+        euler.x += Random.Range(-variance, variance);
+        euler.y += Random.Range(-variance, variance);
         return Quaternion.Euler(euler);
     }
 
