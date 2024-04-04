@@ -6,8 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="622fc66d-b1e0-4191-91c9-c54f14c5d710" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Shards-of-Bone/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Shards-of-Bone/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/Projectiles/PF_Boneshard_Bullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Prefabs/Projectiles/PF_Boneshard_Bullet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Runtime/Player/SplinterProjectiles.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Runtime/Player/SplinterProjectiles.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Runtime/Boids/BoidManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Runtime/Boids/BoidManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Runtime/FOVManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Runtime/FOVManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Settings/SkyandFogSettingsProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Settings/SkyandFogSettingsProfile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scenes/SCN_Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scenes/SCN_Test.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,7 +21,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/Runtime/FOVManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/Runtime/Abilities/AbilitySO.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/Runtime/Abilities/TimeSlowSO.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -56,7 +60,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/Builds/Version [0.0.10]\Shards-of-Bone.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/Builds/Version [0.0.11]\Shards-of-Bone.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="C:\Users\cuney\Documents\GitHub\Shards-of-Bone\Builds\Version [0.0.6]" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -122,7 +126,9 @@
       <workItem from="1711835226032" duration="795000" />
       <workItem from="1712081322076" duration="2822000" />
       <workItem from="1712103624249" duration="22000" />
-      <workItem from="1712103658579" duration="9760000" />
+      <workItem from="1712103658579" duration="10628000" />
+      <workItem from="1712193669261" duration="303000" />
+      <workItem from="1712196449363" duration="8054000" />
     </task>
     <servers />
   </component>

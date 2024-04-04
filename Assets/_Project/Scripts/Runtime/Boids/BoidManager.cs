@@ -32,7 +32,6 @@ public class BoidManager : MonoBehaviour
         {
             int numBoids = boids.Count;
             var boidData = new BoidData[numBoids];
-            Debug.Log(numBoids);
 
             for (int i = 0; i < numBoids; i++)
             {
