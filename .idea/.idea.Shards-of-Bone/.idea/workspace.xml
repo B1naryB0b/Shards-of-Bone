@@ -5,8 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="622fc66d-b1e0-4191-91c9-c54f14c5d710" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Shards-of-Bone/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Shards-of-Bone/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Runtime/Abilities/AbilityManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Runtime/Abilities/AbilityManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DontUseThis.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/DontUseThis.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/FpsArms.fbx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/FpsArms.fbx.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Hands.blend" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Hands.blend.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +131,7 @@
       <workItem from="1712103658579" duration="10628000" />
       <workItem from="1712193669261" duration="303000" />
       <workItem from="1712196449363" duration="8054000" />
-      <workItem from="1712241278044" duration="597000" />
+      <workItem from="1712241278044" duration="6699000" />
     </task>
     <servers />
   </component>

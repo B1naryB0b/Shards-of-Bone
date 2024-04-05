@@ -227,7 +227,7 @@ MonoBehaviour:
     m_Value: 50
   colorFilter:
     m_OverrideState: 1
-    m_Value: {r: 0.79607844, g: 1, b: 0.98481756, a: 1}
+    m_Value: {r: 0.9, g: 1, b: 0.99230766, a: 1}
   hueShift:
     m_OverrideState: 0
     m_Value: 0
