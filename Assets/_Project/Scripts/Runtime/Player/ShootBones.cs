@@ -13,13 +13,37 @@ public class ShootBones : MonoBehaviour
 
     [Header("Continuous Shot")]
     [SerializeField] private float fireRate = 0.5f;
+    public float FireRate
+    {
+        get => fireRate;
+        set => fireRate = value;
+    }
+    
     [SerializeField] private float shootingForce = 1000f;
+    public float ShootingForce
+    {
+        get => shootingForce;
+        set => shootingForce = value;
+    }
+    
     [SerializeField] private float scatterAngleMultiplier = 0.5f;
     [SerializeField] private float scatterPosition = 0.5f;
 
     [Header("Shotgun Shot")]
     [SerializeField] private float shotgunFireRate = 0.5f;
+    public float ShotgunFireRate
+    {
+        get => shotgunFireRate;
+        set => shotgunFireRate = value;
+    }
+    
     [SerializeField] private float shotgunShootingForce = 2000f;
+    public float ShotgunShootingForce
+    {
+        get => shotgunShootingForce;
+        set => shotgunShootingForce = value;
+    }
+    
     [SerializeField] private float shotgunScatterAngleMultiplier = 0.5f;
     [SerializeField] private float shotgunScatterPosition = 0.5f;
     [SerializeField] private int shotgunPellets = 10;

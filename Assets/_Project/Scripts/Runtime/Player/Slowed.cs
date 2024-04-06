@@ -19,7 +19,6 @@ public class Slowed : MonoBehaviour
     {
         if (other.CompareTag("Disabler"))
         {
-            Debug.Log("thing");
             _isSlowed = true;
         }
         else

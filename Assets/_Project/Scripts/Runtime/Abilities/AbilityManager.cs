@@ -12,6 +12,7 @@ public class AbilityManager : MonoBehaviour
     [SerializeField] private float energyRegen;
     [SerializeField] private float energySpend;
     [SerializeField] private float shootEnergyCost; 
+    [SerializeField] private float shootCooldown;
     
     [SerializeField] private Slider slider;
     
@@ -19,20 +20,20 @@ public class AbilityManager : MonoBehaviour
 
     private float _currentEnergy;
     private bool _abilityActive;
+    public bool AbilityActive => _abilityActive;
     
-    [SerializeField] private VolumeProfile defaultVolumeProfile;
-    [SerializeField] private VolumeProfile abilityActiveVolumeProfile;
+    private float _lastShotTime;
     
-    private Volume _currentVolume;
-
     private void Start()
     {
-        _currentVolume = FindObjectOfType<Volume>();
-        
         _currentEnergy = maxEnergy;
         slider.value = _currentEnergy;
         slider.maxValue = maxEnergy;
+        
+        _lastShotTime = -shootCooldown;
 
+        TriggerAbilityEvents(ability => ability.Initialise());
+        
         foreach (var ability in abilities)
         {
             ability.isUnlocked = true;
@@ -43,35 +44,46 @@ public class AbilityManager : MonoBehaviour
     {
         HandleInputs();
         CalculateEnergy();
-        
-        _currentVolume.profile = _abilityActive ? abilityActiveVolumeProfile : defaultVolumeProfile;
     }
 
     private void CalculateEnergy()
     {
-        if (_abilityActive && (_currentEnergy > 0f))
+        bool shouldRegenEnergy = true;
+
+        if (_abilityActive)
         {
-            _currentEnergy -= energySpend * Time.unscaledDeltaTime;
+            if (_currentEnergy > 0f)
+            {
+                _currentEnergy -= energySpend * Time.unscaledDeltaTime;
+                shouldRegenEnergy = false;
+            }
+            else
+            {
+                _abilityActive = false;
+                TriggerAbilityEvents(ability => ability.Deactivate());
+            }
         }
-        else
+
+        if (Input.GetButtonDown("Fire1") && Time.time - _lastShotTime >= shootCooldown)
         {
-            _abilityActive = false;
-            TriggerAbilityEvents(ability => ability.Deactivate());
-            
-            //This is to prevent the player gaining energy when they shotgun fire
-            if (Input.GetButtonDown("Fire1")) _currentEnergy -= shootEnergyCost;
-            
-            if (!Input.GetButton("Fire1")) _currentEnergy += energyRegen * Time.unscaledDeltaTime;
+            _currentEnergy -= shootEnergyCost;
+            _lastShotTime = Time.time;
+            shouldRegenEnergy = false;
         }
-        
-        
+
+        if (shouldRegenEnergy && !Input.GetButton("Fire1"))
+        {
+            _currentEnergy += energyRegen * Time.unscaledDeltaTime;
+        }
+
         _currentEnergy = Mathf.Clamp(_currentEnergy, 0f, maxEnergy);
         slider.value = _currentEnergy;
     }
 
+
     private void HandleInputs()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && Math.Abs(_currentEnergy - maxEnergy) < 0.1f)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && (_abilityActive || Mathf.Abs(_currentEnergy - maxEnergy) < shootEnergyCost))
         {
             _abilityActive = !_abilityActive;
             Action<AbilitySO> action = _abilityActive ? (ability => ability.Activate()) : (ability => ability.Deactivate());

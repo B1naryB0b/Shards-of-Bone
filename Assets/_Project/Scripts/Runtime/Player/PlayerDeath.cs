@@ -9,7 +9,8 @@ public class PlayerDeath : MonoBehaviour
     [SerializeField] private GameObject retryScreen;
     [SerializeField] private GameObject crosshair;
 
-    private bool isDead = false;
+    private bool _isDead = false;
+    public bool IsDead => _isDead;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -22,6 +23,8 @@ public class PlayerDeath : MonoBehaviour
 
     private void Die()
     {
+        _isDead = true;
+
         gameObject.GetComponent<CPMPlayer>().enabled = false;
         gameObject.GetComponent<ShootBones>().enabled = false;
         crosshair.SetActive(false);
@@ -41,10 +44,9 @@ public class PlayerDeath : MonoBehaviour
 
     private void FellOffMapCheck()
     {
-        if (!isDead && gameObject.transform.position.y < -50f)
+        if (!_isDead && gameObject.transform.position.y < -50f)
         {
             Die();
-            isDead = true;
         }
     }
 

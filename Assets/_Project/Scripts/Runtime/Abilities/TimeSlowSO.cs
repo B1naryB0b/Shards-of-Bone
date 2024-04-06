@@ -11,6 +11,13 @@ public class TimeSlowSO : AbilitySO
 {
     [Range(0f,1f)]
     public float timeScale;
+
+    [HideInInspector] public float timeScaleCompensation;
+
+    public override void Initialise()
+    {
+        timeScaleCompensation = 1f / timeScale;
+    }
     
     public override void Activate()
     {
