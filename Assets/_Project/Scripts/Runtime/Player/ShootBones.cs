@@ -51,10 +51,10 @@ public class ShootBones : MonoBehaviour
     
     [HideInInspector] public float shotgunJumpDelay;
 
-    private float fireCooldown = 0f;
-    private float shotgunFireCooldown = 0f;
-    private bool isButtonPressed = false;
-    private float buttonPressedTime = 0f;
+    private float _fireCooldown = 0f;
+    private float _shotgunFireCooldown = 0f;
+    private bool _isButtonPressed = false;
+    private float _buttonPressedTime = 0f;
 
     [SerializeField] private AudioClip projectileSFX;
     [SerializeField] private AudioClip shotgunSFX;
@@ -78,37 +78,37 @@ public class ShootBones : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            isButtonPressed = true;
-            buttonPressedTime = Time.time;
+            _isButtonPressed = true;
+            _buttonPressedTime = Time.time;
         }
 
-        if (isButtonPressed && Time.time - buttonPressedTime > tapThreshold && fireCooldown <= 0f)
+        if (_isButtonPressed && Time.time - _buttonPressedTime > tapThreshold && _fireCooldown <= 0f)
         {
             ShootProjectile();
-            fireCooldown = 1f / fireRate;
+            _fireCooldown = 1f / fireRate;
         }
 
         if (Input.GetButtonUp("Fire1"))
         {
-            if (Time.time - buttonPressedTime <= tapThreshold && shotgunFireCooldown <= 0f)
+            if (Time.time - _buttonPressedTime <= tapThreshold && _shotgunFireCooldown <= 0f)
             {
                 ShootShotgunBlast();
-                shotgunFireCooldown = 1f / shotgunFireRate;
+                _shotgunFireCooldown = 1f / shotgunFireRate;
             }
-            isButtonPressed = false;
+            _isButtonPressed = false;
         }
     }
 
     private void UpdateCooldowns()
     {
-        if (fireCooldown > 0f)
+        if (_fireCooldown > 0f)
         {
-            fireCooldown -= Time.deltaTime;
+            _fireCooldown -= Time.deltaTime;
         }
 
-        if (shotgunFireCooldown > 0f)
+        if (_shotgunFireCooldown > 0f)
         {
-            shotgunFireCooldown -= Time.deltaTime;
+            _shotgunFireCooldown -= Time.deltaTime;
         }
     }
 
