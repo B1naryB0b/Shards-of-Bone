@@ -1,4 +1,5 @@
 ﻿#pragma kernel CSMain
+
 static const int threadGroupSize = 1024;
 
 struct Boid {
@@ -16,24 +17,36 @@ int numBoids;
 float viewRadius;
 float avoidRadius;
 
-[numthreads(threadGroupSize,1,1)]
-void CSMain (uint3 id : SV_DispatchThreadID)
-{
-    for (uint indexB = 0; indexB < numBoids; indexB ++) {
+[numthreads(threadGroupSize, 1, 1)]
+void CSMain (uint3 id : SV_DispatchThreadID) {
+    Boid myBoid = boids[id.x];
+    float3 flockHeading = 0;
+    float3 flockCentre = 0;
+    float3 separationHeading = 0;
+    int numFlockmates = 0;
+
+    for (uint indexB = 0; indexB < numBoids; indexB++) {
         if (id.x != indexB) {
             Boid boidB = boids[indexB];
-            float3 offset = boidB.position - boids[id.x].position;
-            float sqrDst = offset.x * offset.x + offset.y * offset.y + offset.z * offset.z;
+            float3 offset = boidB.position - myBoid.position;
+            float sqrDst = dot(offset, offset);
 
             if (sqrDst < viewRadius * viewRadius) {
-                boids[id.x].numFlockmates += 1;
-                boids[id.x].flockHeading += boidB.direction;
-                boids[id.x].flockCentre += boidB.position;
+                numFlockmates += 1;
+                flockHeading += boidB.direction;
+                flockCentre += boidB.position;
 
                 if (sqrDst < avoidRadius * avoidRadius) {
-                    boids[id.x].separationHeading -= offset / sqrDst;
+                    separationHeading -= offset / sqrDst;
                 }
             }
         }
     }
+
+    // Write the accumulated results back to the global memory
+    myBoid.numFlockmates = numFlockmates;
+    myBoid.flockHeading = flockHeading;
+    myBoid.flockCentre = flockCentre;
+    myBoid.separationHeading = separationHeading;
+    boids[id.x] = myBoid;
 }

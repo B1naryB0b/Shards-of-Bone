@@ -23,10 +23,12 @@ public class Boid : MonoBehaviour, ISpawnable
     private Material material;
     private Transform cachedTransform;
     private Transform target;
+    
 
     void Awake () {
         material = transform.GetComponentInChildren<MeshRenderer> ().material;
         cachedTransform = transform;
+        
     }
 
     public void Initialize (BoidSettings settings, Transform target) {
@@ -39,7 +41,8 @@ public class Boid : MonoBehaviour, ISpawnable
         float startSpeed = (settings.minSpeed + settings.maxSpeed) / 2;
         velocity = transform.forward * startSpeed;
     }
-
+    
+    
     private void OnDestroy()
     {
         BoidManager boidManager = FindObjectOfType<BoidManager>();
@@ -55,9 +58,10 @@ public class Boid : MonoBehaviour, ISpawnable
         }
     }
 
-    public void UpdateBoid () {
-        Vector3 acceleration = Vector3.zero;
-
+    public void UpdateBoid ()
+    {
+        acceleration = Vector3.zero;
+        
         if (target != null) {
             Vector3 offsetToTarget = (target.position - position);
             acceleration = SteerTowards (offsetToTarget) * settings.targetWeight;
@@ -76,7 +80,7 @@ public class Boid : MonoBehaviour, ISpawnable
             acceleration += cohesionForce;
             acceleration += seperationForce;
         }
-
+        
         if (IsHeadingForCollision ()) {
             Vector3 collisionAvoidDir = ObstacleRays ();
             Vector3 collisionAvoidForce = SteerTowards (collisionAvoidDir) * settings.avoidCollisionWeight;
@@ -106,25 +110,24 @@ public class Boid : MonoBehaviour, ISpawnable
 
     bool IsHeadingForCollision () {
         RaycastHit hit;
-        if (Physics.SphereCast (position, settings.boundsRadius, forward, out hit, settings.collisionAvoidDst, settings.obstacleMask)) {
-            return true;
-        } else { }
-        return false;
+        return Physics.SphereCast (position, settings.boundsRadius, forward, out hit, settings.collisionAvoidDst, settings.obstacleMask);
     }
 
-    Vector3 ObstacleRays () {
-        Vector3[] rayDirections = BoidHelper.directions;
+    Vector3 ObstacleRays() {
+    Vector3[] rayDirections = BoidHelper.directions;
 
-        for (int i = 0; i < rayDirections.Length; i++) {
-            Vector3 dir = cachedTransform.TransformDirection (rayDirections[i]);
-            Ray ray = new Ray (position, dir);
-            if (!Physics.SphereCast (ray, settings.boundsRadius, settings.collisionAvoidDst, settings.obstacleMask)) {
-                return dir;
-            }
+    for (int i = 0; i < rayDirections.Length; i++) {
+        Vector3 dir = cachedTransform.TransformDirection(rayDirections[i]);
+        Ray ray = new Ray(position, dir);
+
+        if (!Physics.Raycast(ray, settings.collisionAvoidDst, settings.obstacleMask)) {
+            return dir;
         }
-
-        return forward;
     }
+
+    return forward;
+}
+
 
     Vector3 SteerTowards (Vector3 vector) {
         Vector3 v = vector.normalized * settings.maxSpeed - velocity;

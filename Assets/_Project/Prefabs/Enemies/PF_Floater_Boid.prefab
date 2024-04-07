@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 141153676075742108}
   - component: {fileID: 5208364040947304972}
   - component: {fileID: 6289442635354149452}
-  - component: {fileID: 1938625241998086369}
+  - component: {fileID: -4886482852819574540}
   m_Layer: 9
   m_Name: PF_Floater_Boid
   m_TagString: Enemy
@@ -241,7 +241,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!54 &1938625241998086369
+--- !u!54 &-4886482852819574540
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

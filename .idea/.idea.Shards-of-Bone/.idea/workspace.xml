@@ -6,18 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="622fc66d-b1e0-4191-91c9-c54f14c5d710" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Shards-of-Bone/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Shards-of-Bone/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Materials/Bullets/MV_Trail_Bullet.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Materials/Bullets/MV_Trail_Bullet.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Materials/Bullets/M_Bone_Bullet.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Materials/Bullets/M_Bone_Bullet.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/PP Volumes.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/PP Volumes/VP_Ability.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/PP Volumes/VP_Ability.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/PP Volumes/VP_Default.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/PP Volumes/VP_Default.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/Projectiles/PFV_Boneshard_Splinter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Prefabs/Projectiles/PFV_Boneshard_Splinter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/Projectiles/PF_Boneshard_Bullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Prefabs/Projectiles/PF_Boneshard_Bullet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Runtime/Abilities/AbilityManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Runtime/Abilities/AbilityManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Runtime/Player/Slowed.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Runtime/Player/Slowed.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/Enemies/PFV_Floater_Boid_Big.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Prefabs/Enemies/PFV_Floater_Boid_Big.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Prefabs/Enemies/PF_Floater_Boid.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Prefabs/Enemies/PF_Floater_Boid.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Runtime/Boids/Boid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Runtime/Boids/Boid.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Runtime/Boids/BoidCompute.compute" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Runtime/Boids/BoidCompute.compute" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Runtime/Boids/BoidHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Runtime/Boids/BoidHelper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Runtime/Boids/SO_BoidSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Runtime/Boids/SO_BoidSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Project/Settings/HDRP High Fidelity.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Settings/HDRP High Fidelity.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scenes/SCN_Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scenes/SCN_Test.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +28,8 @@
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/Runtime/Abilities/AbilitySO.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/Runtime/Abilities/BulletSpeedSO.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/Runtime/Abilities/TimeSlowSO.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Project/Scripts/Runtime/VolumeManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.high-definition@14.0.8/Runtime/Material/Lit/Lit.shader" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -68,7 +67,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/Builds/Version [0.0.12]\Shards-of-Bone.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/Builds/Version [0.0.13] TEST\Shards-of-Bone.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="C:\Users\cuney\Documents\GitHub\Shards-of-Bone\Builds\Version [0.0.6]" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -138,7 +137,8 @@
       <workItem from="1712193669261" duration="303000" />
       <workItem from="1712196449363" duration="8054000" />
       <workItem from="1712241278044" duration="6699000" />
-      <workItem from="1712327416941" duration="2282000" />
+      <workItem from="1712327416941" duration="15179000" />
+      <workItem from="1712453495834" duration="3396000" />
     </task>
     <servers />
   </component>
