@@ -15,18 +15,23 @@ PrefabInstance:
       objectReference: {fileID: 7512420052385799317}
     - target: {fileID: -3394952971628654832, guid: c9894510cd7ce5a41a95f4a8b9f2d325,
         type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3394952971628654832, guid: c9894510cd7ce5a41a95f4a8b9f2d325,
+        type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
-      value: 0.30000064
+      value: 0.15000674
       objectReference: {fileID: 0}
     - target: {fileID: -3394952971628654832, guid: c9894510cd7ce5a41a95f4a8b9f2d325,
         type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].inSlope
-      value: -0.30000064
+      value: -0.15000674
       objectReference: {fileID: 0}
     - target: {fileID: -3394952971628654832, guid: c9894510cd7ce5a41a95f4a8b9f2d325,
         type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].outSlope
-      value: -0.30000064
+      value: -0.15000674
       objectReference: {fileID: 0}
     - target: {fileID: -2292062299519877129, guid: c9894510cd7ce5a41a95f4a8b9f2d325,
         type: 3}

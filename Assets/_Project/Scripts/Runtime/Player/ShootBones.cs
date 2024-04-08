@@ -50,18 +50,28 @@ public class ShootBones : MonoBehaviour
     [SerializeField] private float tapThreshold = 0.2f;
     
     [HideInInspector] public float shotgunJumpDelay;
+    
+    [Header("Visual Feedback")]
+    [SerializeField] private GameObject handAnchor;
+    [SerializeField] private float continuousRecoil;
+    [SerializeField] private AnimationCurve continuousRecoilAnimationCurve;
+    [SerializeField] private float shotgunRecoil;
+    [SerializeField] private AnimationCurve shotgunRecoilAnimationCurve;
+
+
+
+    [Header("Audio Feedback")]
+    [SerializeField] private AudioClip projectileSFX;
+    [SerializeField] private AudioClip shotgunSFX;
+
+    private CharacterController _characterController;
 
     private float _fireCooldown = 0f;
     private float _shotgunFireCooldown = 0f;
     private bool _isButtonPressed = false;
     private float _buttonPressedTime = 0f;
 
-    [SerializeField] private AudioClip projectileSFX;
-    [SerializeField] private AudioClip shotgunSFX;
-
-    private CharacterController _characterController;
-
-    public bool isShotgunFired;
+    [HideInInspector] public bool isShotgunFired;
 
     private void Start()
     {

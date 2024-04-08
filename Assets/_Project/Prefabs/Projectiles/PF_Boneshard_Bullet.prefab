@@ -253,7 +253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   splinterObject: {fileID: 7512420052385799317, guid: 1b5bef0650db04b4c8a01d86564b8403,
     type: 3}
-  splintersPerBullet: 2
+  splintersPerBullet: 3
   scatterAngle: 20
 --- !u!96 &-3394952971628654832
 TrailRenderer:

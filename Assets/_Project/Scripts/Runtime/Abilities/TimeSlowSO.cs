@@ -16,6 +16,7 @@ public class TimeSlowSO : AbilitySO
 
     public override void Initialise()
     {
+        Time.timeScale = 1f;
         timeScaleCompensation = 1f / timeScale;
     }
     
