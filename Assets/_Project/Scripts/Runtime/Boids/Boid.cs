@@ -114,7 +114,7 @@ public class Boid : MonoBehaviour, ISpawnable
     }
 
     Vector3 ObstacleRays() {
-    Vector3[] rayDirections = BoidHelper.directions;
+    Vector3[] rayDirections = BoidHelper.Directions;
 
     for (int i = 0; i < rayDirections.Length; i++) {
         Vector3 dir = cachedTransform.TransformDirection(rayDirections[i]);

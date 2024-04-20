@@ -22,11 +22,11 @@ public class TimeSlowSO : AbilitySO
     
     public override void Activate()
     {
-        Time.timeScale = timeScale;
+        Time.timeScale *= timeScale;
     }
 
     public override void Deactivate()
     {
-        Time.timeScale = 1f;
+        Time.timeScale /= timeScale;
     }
 }

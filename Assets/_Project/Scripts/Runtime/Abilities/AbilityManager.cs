@@ -32,7 +32,7 @@ public class AbilityManager : MonoBehaviour
         
         _lastShotTime = -shootCooldown;
 
-        TriggerAbilityEvents(ability => ability.Initialise());
+        TriggerAbilityAction(ability => ability.Initialise());
         
         foreach (var ability in abilities)
         {
@@ -60,7 +60,7 @@ public class AbilityManager : MonoBehaviour
             else
             {
                 _abilityActive = false;
-                TriggerAbilityEvents(ability => ability.Deactivate());
+                TriggerAbilityAction(ability => ability.Deactivate());
             }
         }
 
@@ -87,11 +87,11 @@ public class AbilityManager : MonoBehaviour
         {
             _abilityActive = !_abilityActive;
             Action<AbilitySO> action = _abilityActive ? (ability => ability.Activate()) : (ability => ability.Deactivate());
-            TriggerAbilityEvents(action);
+            TriggerAbilityAction(action);
         }
     }
 
-    private void TriggerAbilityEvents(Action<AbilitySO> abilityAction)
+    private void TriggerAbilityAction(Action<AbilitySO> abilityAction)
     {
         foreach (var ability in abilities)
         {

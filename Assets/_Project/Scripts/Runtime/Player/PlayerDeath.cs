@@ -1,13 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using UnityEngine.UI;
 
 public class PlayerDeath : MonoBehaviour
 {
     [SerializeField] private GameObject retryScreen;
     [SerializeField] private GameObject crosshair;
+    [SerializeField] private float fallDistance;
+    [SerializeField] private float fadeDistance;
+    [SerializeField] private Image fadeImage; // Assign this in the inspector
 
     private bool _isDead = false;
     public bool IsDead => _isDead;
@@ -20,9 +20,10 @@ public class PlayerDeath : MonoBehaviour
         }
     }
 
-
     private void Die()
     {
+        if (_isDead) return;
+
         _isDead = true;
 
         gameObject.GetComponent<CPMPlayer>().enabled = false;
@@ -44,15 +45,30 @@ public class PlayerDeath : MonoBehaviour
 
     private void FellOffMapCheck()
     {
-        if (!_isDead && gameObject.transform.position.y < -50f)
+        float playerHeight = gameObject.transform.position.y;
+        if (playerHeight < -fallDistance)
         {
             Die();
         }
+        else if (playerHeight < -fadeDistance)
+        {
+            float fadeAmount = 1 - Mathf.InverseLerp(-fallDistance, -fadeDistance, playerHeight);
+            SetScreenFade(fadeAmount);
+        }
+    }
+
+    private void SetScreenFade(float alpha)
+    {
+        Color fadeColor = fadeImage.color;
+        fadeColor.a = Mathf.Clamp01(alpha);
+        fadeImage.color = fadeColor;
     }
 
     private void Update()
     {
-        FellOffMapCheck();
+        if (!_isDead)
+        {
+            FellOffMapCheck();
+        }
     }
-
 }
