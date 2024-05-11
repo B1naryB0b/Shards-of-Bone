@@ -107,6 +107,7 @@ public class Grapple : MonoBehaviour
         _grapplePoint = hit.point;
         _grappleStartPoint = transform.position;
         _isGrappling = true;
+        _cpmPlayer.SetGrapplingState(_isGrappling);  // Set the grappling state when grappling starts
         _grappleTravelTime = 0f;
         _grappleCooldownTime = 0f;
         
@@ -120,6 +121,7 @@ public class Grapple : MonoBehaviour
     private void StopGrapple()
     {
         _isGrappling = false;
+        _cpmPlayer.SetGrapplingState(_isGrappling);  // Reset the grappling state when grappling stops
         if (_lineRenderer != null)
         {
             _lineRenderer.enabled = false;

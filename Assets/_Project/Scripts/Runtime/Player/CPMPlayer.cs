@@ -60,18 +60,25 @@ public class CPMPlayer : MonoBehaviour
 
     /* Movement stuff */
     [Header("Movement")] 
-    public float terminalVelocity = 40.0f;
+    //public float terminalVelocity = 40.0f;
+    public float terminalVelocityX = 40.0f;
+    public float terminalVelocityY = 40.0f;
+
     public float moveSpeed = 7.0f;                // Ground move speed
     public float runAcceleration = 14.0f;         // Ground accel
     public float runDeacceleration = 10.0f;       // Deacceleration that occurs when running on the ground
     public float airAcceleration = 2.0f;          // Air accel
     public float airDecceleration = 2.0f;         // Deacceleration experienced when ooposite strafing
     public float airControl = 0.3f;               // How precise air control is
+    public float grappleAirControl = 0.1f;        // Air control during grappling (NEW)
     public float sideStrafeAcceleration = 50.0f;  // How fast acceleration occurs to get up to sideStrafeSpeed when
+    public float grapplingSideStrafeAcceleration = 5f;
     public float sideStrafeSpeed = 1.0f;          // What the max speed to generate when side strafing
     public float jumpSpeed = 8.0f;                // The speed at which the character's up axis gains when hitting jump
     public bool holdJumpToBhop = false;           // When enabled allows player to just hold jump button to keep on bhopping perfectly. Beware: smells like casual.
-
+    
+    private bool _isGrappling = false;             // Is the player grappling
+    
     [Header ("FPS")]
     /*print() style */
     public GUIStyle style;
@@ -146,10 +153,8 @@ public class CPMPlayer : MonoBehaviour
 
     private void Update()
     {
-        if (playerVelocity.sqrMagnitude > (terminalVelocity * terminalVelocity))
-        {
-            playerVelocity = playerVelocity.normalized * terminalVelocity;
-        }
+        Vector3 velocityLimit = new Vector3(terminalVelocityX, terminalVelocityY, terminalVelocityX);
+        playerVelocity = Vector3.Min(playerVelocity, velocityLimit);
         
         if (!_controller.isGrounded)
         {
@@ -209,6 +214,8 @@ public class CPMPlayer : MonoBehaviour
         else if(!_controller.isGrounded)
             AirMove();
 
+        // Apply the ceiling collision check here
+        CeilingCollisionCheck();
         // Move the controller
         _controller.Move(playerVelocity * Time.deltaTime);
 
@@ -224,6 +231,39 @@ public class CPMPlayer : MonoBehaviour
             transform.position.x,
             transform.position.y + playerViewYOffset,
             transform.position.z);
+    }
+
+    private void CeilingCollisionCheck()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.up, out hit, playerViewYOffset + 0.1f))
+        {
+            if (hit.normal.y < 0 && playerVelocity.y > 0) // Only adjust if hitting ceiling and moving upwards
+            {
+                playerVelocity.y = 0;
+            }
+        }
+    }
+    public void SetGrapplingState(bool grappling)
+    {
+        _isGrappling = grappling;
+        UpdateAirControl();
+    }
+
+    private void UpdateAirControl()
+    {
+        if (_isGrappling)
+        {
+            sideStrafeAcceleration = grapplingSideStrafeAcceleration;
+            sideStrafeSpeed = 7f;
+            //airControl = grappleAirControl;
+        }
+        else
+        {
+            sideStrafeAcceleration = 50f;
+            sideStrafeSpeed = 14f;
+            //airControl = 1000f;  // Reset to default when not grappling
+        }
     }
 
     private void FPSCalculation()
