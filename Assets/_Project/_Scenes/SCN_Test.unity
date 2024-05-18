@@ -14029,6 +14029,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1907224051198770843, guid: 437c12f0704ee414f9a16897911bbfba,
         type: 3}
+      propertyPath: terminalVelocityX
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 1907224051198770843, guid: 437c12f0704ee414f9a16897911bbfba,
+        type: 3}
+      propertyPath: terminalVelocityY
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 1907224051198770843, guid: 437c12f0704ee414f9a16897911bbfba,
+        type: 3}
       propertyPath: bonusGravityStrength
       value: 0
       objectReference: {fileID: 0}

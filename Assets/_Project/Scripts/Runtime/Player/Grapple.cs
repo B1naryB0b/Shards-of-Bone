@@ -29,6 +29,8 @@ public class Grapple : MonoBehaviour
     [SerializeField] private RectTransform grappleIconRect;
     [SerializeField] private AnimationCurve grappleIconCurve;
 
+
+    private Vector3 currentDisplacement;
     void Start()
     {
         _cpmPlayer = GetComponent<CPMPlayer>();
@@ -116,6 +118,8 @@ public class Grapple : MonoBehaviour
             _lineRenderer.enabled = true;
             _lineRenderer.positionCount = 2;
         }
+
+        currentDisplacement = _grapplePoint - _grappleStartPoint;
     }
 
     private void StopGrapple()
@@ -126,6 +130,8 @@ public class Grapple : MonoBehaviour
         {
             _lineRenderer.enabled = false;
         }
+
+        currentDisplacement = Vector3.zero;
     }
 
     private void GrappleMovement()
@@ -137,7 +143,8 @@ public class Grapple : MonoBehaviour
         if (_grappleTravelTime < maxGrappleTravelTime)
         {
             float curveValue = grappleCurve.Evaluate(_grappleTravelTime / maxGrappleTravelTime);
-            Vector3 direction = (_grapplePoint - _grappleStartPoint).normalized;
+            Vector3 displacement = _grapplePoint - _grappleStartPoint;
+            Vector3 direction = displacement.normalized;
             float dotProduct = Vector3.Dot(normalizedPlayerVelocity, direction);
             Debug.Log(dotProduct);
             
@@ -147,11 +154,14 @@ public class Grapple : MonoBehaviour
                 Vector3 backStoppedVelocity = Vector3.Lerp(normalizedPlayerVelocity, perpendicular, backStopStrength * Time.deltaTime) * _cpmPlayer.PlayerVelocity.magnitude;
                 _cpmPlayer.SetVelocity(backStoppedVelocity);
             }
-            
-            
             Vector3 grappleForce = direction * (grappleStrength * curveValue);
-            _cpmPlayer.AddExternalVelocity((grappleForce + (grappleForce.y > 0f ? grappleForce.GetAxis(Axis.Y) : Vector3.zero)) * Time.deltaTime);
+            Vector3 compensatedGrappleFroce =
+                (grappleForce + (currentDisplacement.y > 0f
+                    ? grappleForce.GetAxis(Axis.Y) * Mathf.Lerp(0f, 3f, currentDisplacement.y / 10f)
+                    : Vector3.zero)) * Time.deltaTime;
             
+            _cpmPlayer.AddExternalVelocity(compensatedGrappleFroce);
+            Debug.Log(compensatedGrappleFroce);
         }
         else
         {

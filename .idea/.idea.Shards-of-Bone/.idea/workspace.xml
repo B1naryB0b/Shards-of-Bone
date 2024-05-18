@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="622fc66d-b1e0-4191-91c9-c54f14c5d710" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Shards-of-Bone/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Shards-of-Bone/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Runtime/Player/CPMPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Runtime/Player/CPMPlayer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Project/Scripts/Runtime/Player/Grapple.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/Scripts/Runtime/Player/Grapple.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Project/_Scenes/SCN_Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Project/_Scenes/SCN_Test.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,6 +141,10 @@
       <workItem from="1714352842418" duration="8759000" />
       <workItem from="1715187322153" duration="1804000" />
       <workItem from="1715343622470" duration="3091000" />
+      <workItem from="1715466906939" duration="2546000" />
+      <workItem from="1715671001331" duration="1287000" />
+      <workItem from="1715789297489" duration="4662000" />
+      <workItem from="1715968429684" duration="331000" />
     </task>
     <servers />
   </component>
