@@ -1,7 +1,12 @@
+using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Grapple : MonoBehaviour
 {
+    private PlayerInputActions _playerControls;
+    private InputAction _grappleInput;
+    
     private Camera _playerCamera;
     private CPMPlayer _cpmPlayer;
     
@@ -30,7 +35,42 @@ public class Grapple : MonoBehaviour
     [SerializeField] private AnimationCurve grappleIconCurve;
 
 
-    private Vector3 currentDisplacement;
+    private Vector3 _currentDisplacement;
+
+    private void Awake()
+    {
+        _playerControls = new PlayerInputActions();
+    }
+
+    private void OnEnable()
+    {
+        _grappleInput = _playerControls.Player.Grapple;
+        _grappleInput.Enable();
+        _grappleInput.performed += OnGrapplePerformed;
+        _grappleInput.canceled += OnGrappleCanceled;
+    }
+
+    private void OnDisable()
+    {
+        _grappleInput.Disable();
+        _grappleInput.performed -= OnGrapplePerformed;
+        _grappleInput.canceled -= OnGrappleCanceled;
+    }
+
+    private void OnGrapplePerformed(InputAction.CallbackContext obj)
+    {
+        if ((_grappleCooldownTime >= grappleCooldown || _isCoyoteTimeActive))
+        {
+            ShootGrapple();
+            _isCoyoteTimeActive = false;
+        }
+    }
+    
+    private void OnGrappleCanceled(InputAction.CallbackContext obj)
+    {
+        StopGrapple();
+    }
+
     void Start()
     {
         _cpmPlayer = GetComponent<CPMPlayer>();
@@ -46,7 +86,6 @@ public class Grapple : MonoBehaviour
     void Update()
     {
         GrappleCooldown();
-        HandleInput();
 
         if (_isGrappling)
         {
@@ -73,20 +112,6 @@ public class Grapple : MonoBehaviour
         if (_grappleCooldownTime >= grappleCooldown)
         {
             _isCoyoteTimeActive = false;
-        }
-    }
-
-    private void HandleInput()
-    {
-        if (Input.GetButtonDown("Fire2") && (_grappleCooldownTime >= grappleCooldown || _isCoyoteTimeActive))
-        {
-            ShootGrapple();
-            _isCoyoteTimeActive = false;
-        }
-
-        if (Input.GetButtonUp("Fire2"))
-        {
-            StopGrapple();
         }
     }
 
@@ -119,7 +144,7 @@ public class Grapple : MonoBehaviour
             _lineRenderer.positionCount = 2;
         }
 
-        currentDisplacement = _grapplePoint - _grappleStartPoint;
+        _currentDisplacement = _grapplePoint - _grappleStartPoint;
     }
 
     private void StopGrapple()
@@ -131,7 +156,7 @@ public class Grapple : MonoBehaviour
             _lineRenderer.enabled = false;
         }
 
-        currentDisplacement = Vector3.zero;
+        _currentDisplacement = Vector3.zero;
     }
 
     private void GrappleMovement()
@@ -156,8 +181,8 @@ public class Grapple : MonoBehaviour
             }
             Vector3 grappleForce = direction * (grappleStrength * curveValue);
             Vector3 compensatedGrappleFroce =
-                (grappleForce + (currentDisplacement.y > 0f
-                    ? grappleForce.GetAxis(Axis.Y) * Mathf.Lerp(0f, 3f, currentDisplacement.y / 10f)
+                (grappleForce + (_currentDisplacement.y > 0f
+                    ? grappleForce.GetAxis(Axis.Y) * Mathf.Lerp(0f, 0.1f, _currentDisplacement.y / 10f)
                     : Vector3.zero)) * Time.deltaTime;
             
             _cpmPlayer.AddExternalVelocity(compensatedGrappleFroce);

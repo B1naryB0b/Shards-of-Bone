@@ -1,15 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 public class ShootBones : MonoBehaviour
 {
+    private PlayerInputActions _playerControls;
+    private InputAction _fireInput;
+    
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform projectileSpawnPoint;
     [SerializeField] private float movementPositionCompensationStrength;
     [SerializeField] private float movementAngleCompensationStrength;
-
 
     [Header("Continuous Shot")]
     [SerializeField] private float fireRate = 0.5f;
@@ -68,10 +73,32 @@ public class ShootBones : MonoBehaviour
 
     private float _fireCooldown = 0f;
     private float _shotgunFireCooldown = 0f;
-    private bool _isButtonPressed = false;
-    private float _buttonPressedTime = 0f;
+    private bool _isFirePressed = false;
+    private float _firePressedTime = 0f;
+    
 
     [HideInInspector] public bool isShotgunFired;
+
+
+    private void Awake()
+    {
+        _playerControls = new PlayerInputActions();
+    }
+
+    private void OnEnable()
+    {
+        _fireInput = _playerControls.Player.Fire;
+        _fireInput.Enable();
+        _fireInput.performed += OnFirePerformed;
+        _fireInput.canceled += OnFireCanceled;
+    }
+
+    private void OnDisable()
+    {
+        _fireInput.Disable();
+        _fireInput.performed -= OnFirePerformed;
+        _fireInput.canceled -= OnFireCanceled;
+    }
 
     private void Start()
     {
@@ -80,19 +107,41 @@ public class ShootBones : MonoBehaviour
 
     private void Update()
     {
-        HandleShootingInput();
+        if (_isFirePressed && Time.time - _firePressedTime > tapThreshold && _fireCooldown <= 0f)
+        {
+            ShootProjectile();
+            _fireCooldown = 1f / fireRate;
+        }
+        
         UpdateCooldowns();
+        
     }
 
-    private void HandleShootingInput()
+    private void OnFirePerformed(InputAction.CallbackContext context)
+    {
+        _isFirePressed = true;
+        _firePressedTime = Time.time;
+    }
+
+    private void OnFireCanceled(InputAction.CallbackContext context)
+    {
+        if (Time.time - _firePressedTime <= tapThreshold && _shotgunFireCooldown <= 0f)
+        {
+            ShootShotgunBlast();
+            _shotgunFireCooldown = 1f / shotgunFireRate;
+        }
+        _isFirePressed = false;
+    }
+    
+    /*private void HandleShootingInput()
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            _isButtonPressed = true;
-            _buttonPressedTime = Time.time;
+            _isFirePressed = true;
+            _firePressedTime = Time.time;
         }
 
-        if (_isButtonPressed && Time.time - _buttonPressedTime > tapThreshold && _fireCooldown <= 0f)
+        if (_isFirePressed && Time.time - _firePressedTime > tapThreshold && _fireCooldown <= 0f)
         {
             ShootProjectile();
             _fireCooldown = 1f / fireRate;
@@ -100,14 +149,15 @@ public class ShootBones : MonoBehaviour
 
         if (Input.GetButtonUp("Fire1"))
         {
-            if (Time.time - _buttonPressedTime <= tapThreshold && _shotgunFireCooldown <= 0f)
+            if (Time.time - _firePressedTime <= tapThreshold && _shotgunFireCooldown <= 0f)
             {
                 ShootShotgunBlast();
                 _shotgunFireCooldown = 1f / shotgunFireRate;
             }
-            _isButtonPressed = false;
+            _isFirePressed = false;
         }
     }
+    */
 
     private void UpdateCooldowns()
     {

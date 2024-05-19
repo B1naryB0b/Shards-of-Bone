@@ -2,12 +2,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class AbilityManager : MonoBehaviour
 {
+    private PlayerInputActions _playerControls;
+    private InputAction _abilityInput;
+    
     [SerializeField] private float maxEnergy;
     [SerializeField] private float energyRegen;
     [SerializeField] private float energySpend;
@@ -23,7 +27,35 @@ public class AbilityManager : MonoBehaviour
     public bool AbilityActive => _abilityActive;
     
     private float _lastShotTime;
-    
+
+    private void Awake()
+    {
+        _playerControls = new PlayerInputActions();
+    }
+
+    private void OnEnable()
+    {
+        _abilityInput = _playerControls.Player.Ability;
+        _abilityInput.Enable();
+        _abilityInput.performed += OnAbilityPerformed;
+    }
+
+    private void OnDisable()
+    {
+        _abilityInput.Disable();
+        _abilityInput.performed -= OnAbilityPerformed;
+    }
+
+    private void OnAbilityPerformed(InputAction.CallbackContext obj)
+    {
+        if (_abilityActive || Mathf.Abs(_currentEnergy - maxEnergy) < shootEnergyCost)
+        {
+            _abilityActive = !_abilityActive;
+            Action<AbilitySO> action = _abilityActive ? (ability => ability.Activate()) : (ability => ability.Deactivate());
+            TriggerAbilityAction(action);
+        }
+    }
+
     private void Start()
     {
         _currentEnergy = maxEnergy;
@@ -42,7 +74,7 @@ public class AbilityManager : MonoBehaviour
 
     private void Update()
     {
-        HandleInputs();
+        //HandleInputs();
         CalculateEnergy();
     }
 
@@ -78,17 +110,6 @@ public class AbilityManager : MonoBehaviour
 
         _currentEnergy = Mathf.Clamp(_currentEnergy, 0f, maxEnergy);
         slider.value = _currentEnergy;
-    }
-
-
-    private void HandleInputs()
-    {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && (_abilityActive || Mathf.Abs(_currentEnergy - maxEnergy) < shootEnergyCost))
-        {
-            _abilityActive = !_abilityActive;
-            Action<AbilitySO> action = _abilityActive ? (ability => ability.Activate()) : (ability => ability.Deactivate());
-            TriggerAbilityAction(action);
-        }
     }
 
     private void TriggerAbilityAction(Action<AbilitySO> abilityAction)

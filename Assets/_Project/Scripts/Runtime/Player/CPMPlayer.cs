@@ -26,9 +26,11 @@
  *
  */
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 // Contains the command the user wishes upon the character
 struct Cmd
@@ -40,6 +42,14 @@ struct Cmd
 
 public class CPMPlayer : MonoBehaviour
 {
+    //Input
+    private PlayerInputActions _playerControls;
+    private InputAction _lookInput;
+    private Vector2 _lookDirection;
+    private InputAction _moveInput;
+    private Vector2 _moveDirection;
+    private InputAction _jumpInput;
+    
     [Header ("Camera")]
     public Transform playerView;     // Camera
     public float playerViewYOffset = 0.6f; // The height at which the camera is bound to
@@ -79,17 +89,6 @@ public class CPMPlayer : MonoBehaviour
     
     private bool _isGrappling = false;             // Is the player grappling
     
-    [Header ("FPS")]
-    /*print() style */
-    public GUIStyle style;
-
-    /*FPS Stuff */
-    public float fpsDisplayRate = 4.0f; // 4 updates per sec
-
-    private int frameCount = 0;
-    private float dt = 0.0f;
-    private float fps = 0.0f;
-
     private CharacterController _controller;
     public CharacterController Controller => _controller;
 
@@ -120,7 +119,57 @@ public class CPMPlayer : MonoBehaviour
     private ShotgunJump shotgunJump;
     private float airTime;
 
+
+    private void OnEnable()
+    {
+        _moveInput = _playerControls.Player.Move;
+        _moveInput.Enable();
+        
+        _lookInput = _playerControls.Player.Look;
+        _lookInput.Enable();
+        
+        _jumpInput = _playerControls.Player.Jump;
+        _jumpInput.Enable();
+        _jumpInput.performed += context => OnJumpPerformed();
+        _jumpInput.canceled += context => OnJumpCanceled();
+    }
+
+    private void OnDisable()
+    {
+        _moveInput.Disable();
+        
+        _lookInput.Disable();
+        
+        _jumpInput.Disable();
+        _jumpInput.performed -= context => OnJumpPerformed();
+        _jumpInput.canceled -= context => OnJumpCanceled();
+    }
+
+    private void Awake()
+    {
+        _playerControls = new PlayerInputActions();
+    }
     
+    private void OnJumpPerformed()
+    {
+        if (holdJumpToBhop)
+        {
+            wishJump = true;
+        }
+        else
+        {
+            if (!wishJump)
+            {
+                wishJump = true;
+            }
+        }
+    }
+
+    private void OnJumpCanceled()
+    {
+        wishJump = false;
+    }
+
     private void Start()
     {
         airTime = 0f;
@@ -168,12 +217,12 @@ public class CPMPlayer : MonoBehaviour
         //int applied = !Input.GetKey(KeyCode.Space) && shotgunJump.isShotgunJumping ? 1 : 0;
         gravity = appliedGravity + Mathf.Lerp(0, bonusGravityStrength, airTime/bonusGravityTime);
         
-        FPSCalculation();
         LockCursor();
 
+        _lookDirection = _lookInput.ReadValue<Vector2>();
         /* Camera rotation stuff, mouse controls this shit */
-        rotX -= Input.GetAxisRaw("Mouse Y") * xMouseSensitivity * 0.02f;
-        rotY += Input.GetAxisRaw("Mouse X") * yMouseSensitivity * 0.02f;
+        rotX -= _lookDirection.y * xMouseSensitivity * Time.deltaTime;
+        rotY += _lookDirection.x * yMouseSensitivity * Time.deltaTime;
 
         // Clamp the X rotation
         if(rotX < -90)
@@ -208,7 +257,6 @@ public class CPMPlayer : MonoBehaviour
 
 
         /* Movement, here's the important part */
-        QueueJump();
         if(_controller.isGrounded)
             GroundMove();
         else if(!_controller.isGrounded)
@@ -266,18 +314,6 @@ public class CPMPlayer : MonoBehaviour
         }
     }
 
-    private void FPSCalculation()
-    {
-        frameCount++;
-        dt += Time.deltaTime;
-        if (dt > 1.0 / fpsDisplayRate)
-        {
-            fps = Mathf.Round(frameCount / dt);
-            frameCount = 0;
-            dt -= 1.0f / fpsDisplayRate;
-        }
-    }
-
     private static void LockCursor()
     {
         if (Cursor.lockState != CursorLockMode.Locked) 
@@ -296,29 +332,10 @@ public class CPMPlayer : MonoBehaviour
      */
     private void SetMovementDir()
     {
-        _cmd.forwardMove = Input.GetAxisRaw("Vertical");
-        _cmd.rightMove   = Input.GetAxisRaw("Horizontal");
-    }
+        _moveDirection = _moveInput.ReadValue<Vector2>();
 
-    /**
-     * Queues the next jump just like in Q3
-     */
-    private void QueueJump()
-    {
-        if(holdJumpToBhop)
-        {
-            wishJump = Input.GetButton("Jump");
-            return;
-        }
-
-        if(Input.GetButtonDown("Jump") && !wishJump)
-        {
-            wishJump = true;
-        }   
-        if (Input.GetButtonUp("Jump"))
-        {
-            wishJump = false;
-        }
+        _cmd.forwardMove = _moveDirection.y;
+        _cmd.rightMove   = _moveDirection.x;
     }
 
     /**
@@ -496,13 +513,5 @@ public class CPMPlayer : MonoBehaviour
     {
         playerVelocity = velocity;
     }
-
-    private void OnGUI()
-    {
-        GUI.Label(new Rect(0, 0, 400, 100), "FPS: " + fps, style);
-        var ups = _controller.velocity;
-        ups.y = 0;
-        GUI.Label(new Rect(0, 50, 400, 100), "Speed: " + Mathf.Round(ups.magnitude * 100) / 100 + "ups", style);
-        GUI.Label(new Rect(0, 100, 400, 100), "Top Speed: " + Mathf.Round(playerTopVelocity * 100) / 100 + "ups", style);
-    }
+    
 }
