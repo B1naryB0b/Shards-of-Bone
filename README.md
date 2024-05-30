@@ -1,3 +1,4 @@
+PLEASE NOTE: The current working version of this project has been migrated to Plastic SCM
 
 ![Shards_of_Bone](https://github.com/B1naryB0b/Shards-of-Bone/assets/35399675/bf61fe51-f22a-470b-8676-09ec47b525ed)
 
