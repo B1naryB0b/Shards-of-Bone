@@ -44,7 +44,7 @@ public class ShotgunJump : MonoBehaviour
         if (!_cpmPlayer.Controller.isGrounded && _timeSinceGrounded <= jumpTimeWindow && _shootBones.isShotgunFired && IsCameraFacingDownward())
         {
             Debug.Log("Shotgun jump");
-            AudioController.Instance.PlaySound(shotgunJumpSFX);
+            AudioController.Instance?.PlaySound(shotgunJumpSFX);
             _cpmPlayer.AddExternalVelocity((-_mainCamera.transform.forward * force) + (_cpmPlayer.Controller.velocity.normalized * force * 0.1f));
             _shootBones.isShotgunFired = false;
             _canShotgunJump = false;

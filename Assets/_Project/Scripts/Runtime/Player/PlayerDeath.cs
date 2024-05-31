@@ -25,8 +25,13 @@ public class PlayerDeath : MonoBehaviour
         if (_isDead) return;
 
         _isDead = true;
-
-        gameObject.GetComponent<CPMPlayer>().enabled = false;
+        
+        if (gameObject.TryGetComponent(out CPMPlayer cpmPlayer))
+            cpmPlayer.enabled = false;
+        
+        if (gameObject.TryGetComponent(out MovementController movementController))
+            movementController.enabled = false;
+        
         gameObject.GetComponent<ShootBones>().enabled = false;
         crosshair.SetActive(false);
         retryScreen.SetActive(true);

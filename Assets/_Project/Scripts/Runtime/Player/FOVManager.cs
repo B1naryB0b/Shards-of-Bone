@@ -9,7 +9,6 @@ public struct FOV
     public float fovScaler;
 }
 
-[RequireComponent(typeof(CPMPlayer))]
 public class FOVManager : MonoBehaviour
 {
     [SerializeField] private List<FOV> fovs;

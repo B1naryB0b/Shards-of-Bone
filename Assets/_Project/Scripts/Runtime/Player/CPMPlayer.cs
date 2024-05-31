@@ -452,7 +452,7 @@ public class CPMPlayer : MonoBehaviour
 
         if(wishJump)
         {
-            AudioController.Instance.PlaySound(bHopSFX);
+            AudioController.Instance?.PlaySound(bHopSFX);
             playerVelocity.y = jumpSpeed;
             wishJump = false;
         }
